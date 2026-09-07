@@ -145,52 +145,52 @@ const DEFAULT_PACKAGES = [
     "updated_at": "2026-09-07 12:15"
   },
   {
-    "id": "pkg-macbook",
-    "name": "Apple 官方訂單 MacBook Pro (自訂配置)",
+    "id": "pkg-macbook-air-sky-blue",
+    "name": "Apple 13 吋 MacBook Air (天藍色客製規格)",
     "category": "3C 旗艦",
     "carrier": "sf_express",
-    "carrier_name": "順豐速運 / 黑貓 (Apple 直營出貨)",
-    "tracking_number": "請填入 Apple 訂單號 (如 W10...)",
+    "carrier_name": "Apple 原廠直營 / 順豐速運",
+    "tracking_number": "訂單 #W1529074157",
     "status_code": "in_transit",
-    "status_text": "組裝廠包裝完成，等待航班直飛台灣",
+    "status_text": "Apple 正在處理訂單 (原廠客製組裝中)",
     "current_step": 2,
     "steps": [
       {
-        "title": "Apple 訂購確認",
-        "desc": "訂單確認與客製化組裝",
-        "time": "進行中",
+        "title": "下達訂單",
+        "desc": "8/26 訂購確認 (教育優惠減免 -NT$3,200)",
+        "time": "2026-08-26",
         "completed": true
       },
       {
-        "title": "工廠出庫",
-        "desc": "產線完工，移交順豐/DHL國際快遞",
-        "time": "已移交",
+        "title": "正在處理",
+        "desc": "Apple 正在處理你的訂單，客製配裝中",
+        "time": "處理中",
         "completed": true
       },
       {
-        "title": "國際直飛",
-        "desc": "安排航班運抵台灣桃園機場",
+        "title": "準備出貨",
+        "desc": "組裝廠完工打包，產生順豐提單號",
+        "time": "預計近日完成",
+        "completed": false
+      },
+      {
+        "title": "順豐航班已出貨",
+        "desc": "搭乘國際班機抵達台灣海關清關派送",
         "time": "運送中",
         "completed": false
       },
       {
-        "title": "清關派送",
-        "desc": "專車清關，司機出車派送",
-        "time": "待抵達",
-        "completed": false
-      },
-      {
-        "title": "本人簽收",
-        "desc": "高單價商品簽收開箱",
-        "time": "待簽收",
+        "title": "送達公司簽收",
+        "desc": "專車送達新北市五股區鈊象電子本人簽收",
+        "time": "官方預估 09/17 - 09/24",
         "completed": false
       }
     ],
-    "estimated_delivery": "依 Apple 官網預估日期為準",
-    "location": "國際快遞轉運站",
-    "note": "Apple 通常出貨時會寄送提單號，點卡片「✏️ 筆」即可替換為正式單號",
+    "estimated_delivery": "2026/09/17 - 2026/09/24",
+    "location": "Apple 原廠組裝中心處理中",
+    "note": "13 吋 MacBook Air 天藍色 (NT$43,390) | 送達地址：新北市五股區五工路 鈊象電子 | 佳永 陳",
     "official_url": "https://www.apple.com/tw/shop/order/list",
-    "updated_at": "2026-09-07 12:00"
+    "updated_at": "2026-09-07 12:20"
   },
   {
     "id": "pkg-coupang",
