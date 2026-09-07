@@ -1,49 +1,49 @@
 [
   {
     "id": "pkg-amazon-healthcare",
-    "name": "Amazon 美國亞馬遜 專業運動護膝 x 2 (2 Health Care items)",
+    "name": "Amazon 專業運動護膝 x 2 (2 Health Care items)",
     "category": "運動保健",
     "carrier": "ecms",
     "carrier_name": "Amazon Global / ECMS 易客滿",
-    "tracking_number": "9/6 已下單 (待出貨提供提單號)",
+    "tracking_number": "訂單號：112-9464569-8250632",
     "status_code": "in_transit",
     "status_text": "Amazon 備貨包裝中，即將出庫",
     "current_step": 2,
     "steps": [
       {
         "title": "Amazon 下單",
-        "desc": "2026-09-06 11:54 已完成付款訂購",
+        "desc": "9/6 11:54 完成訂購 ($409.66)",
         "time": "2026-09-06 11:54",
         "completed": true
       },
       {
-        "title": "原廠備貨",
-        "desc": "Amazon 倉庫正在理貨打包兩件護膝",
-        "time": "2026-09-07 進行中",
+        "title": "倉庫備貨",
+        "desc": "Amazon 美國倉理貨打包中",
+        "time": "進行中",
         "completed": true
       },
       {
-        "title": "國際航空件",
-        "desc": "安排國際航班起飛前往台灣桃園機場",
-        "time": "預估 9/10-9/12",
+        "title": "國際航空班機",
+        "desc": "安排國際快遞航班直飛台灣",
+        "time": "預估 9/10-9/14",
         "completed": false
       },
       {
-        "title": "海關清關",
-        "desc": "抵達台灣，EZ WAY 實名委任通關",
-        "time": "預估 9/13-9/15",
+        "title": "海關清關查驗",
+        "desc": "抵達桃園海關，EZ WAY 委任確認",
+        "time": "預估 9/15-9/18",
         "completed": false
       },
       {
-        "title": "順利送達",
-        "desc": "送達新北市收件地址",
-        "time": "官方預估 9/15 - 9/22",
+        "title": "送達新北開箱",
+        "desc": "投遞新北市收件地址",
+        "time": "官方預估 9/22 週二前",
         "completed": false
       }
     ],
-    "estimated_delivery": "9 月 15 日 - 9 月 22 日",
+    "estimated_delivery": "9 月 15 日 - 9 月 22 日 (預估 9/22 送達)",
     "location": "Amazon 美國/海外倉儲中心",
-    "note": "收件人：Jiayong (新北市)；出貨後留意 EZ WAY 委任確認",
+    "note": "金額 $409.66 | 收件人：Jiayong (新北市) | 出貨後請留意 EZ WAY 委任通知",
     "official_url": "https://www.amazon.com/gp/css/order-history?ref_=fed_yo_default",
     "updated_at": "2026-09-07 12:00"
   },
