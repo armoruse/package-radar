@@ -1,5 +1,53 @@
 [
   {
+    "id": "pkg-coupang-ahoye-knee-brace",
+    "name": "酷澎 🚀火箭WOW清晨 AHOYE 透氣可調護膝 2件組 (先擋著用)",
+    "category": "運動護具",
+    "carrier": "coupang",
+    "carrier_name": "酷澎火箭速配 (火箭WOW 清晨專車)",
+    "tracking_number": "2026.9.7 訂購 (火箭清晨達)",
+    "status_code": "in_transit",
+    "status_text": "商品準備中 (🚀 明天清晨 7 點前送達)",
+    "current_step": 2,
+    "steps": [
+      {
+        "title": "酷澎下單",
+        "desc": "9/7 今日訂購確認 ($419)",
+        "time": "2026-09-07",
+        "completed": true
+      },
+      {
+        "title": "商品準備中",
+        "desc": "酷澎台灣物流中心火速備貨打包中",
+        "time": "處理中",
+        "completed": true
+      },
+      {
+        "title": "夜間幹線轉運",
+        "desc": "深夜專車發送至各區配送站所",
+        "time": "預計今晚",
+        "completed": false
+      },
+      {
+        "title": "清晨專車配送",
+        "desc": "火箭WOW 專員裝車清晨配送中",
+        "time": "預估明日清晨",
+        "completed": false
+      },
+      {
+        "title": "門前拍照送達",
+        "desc": "放置門口或指定地點完成配送",
+        "time": "🚀 明天(二) 清晨 7:00 前",
+        "completed": false
+      }
+    ],
+    "estimated_delivery": "明天 (二) 清晨 7 點前",
+    "location": "酷澎台灣物流中心備貨中",
+    "note": "AHOYE 透氣可調護膝2件組 加強款 ($419) | 亞馬遜到貨前先擋著用！明天清晨起床即可開箱使用",
+    "official_url": "https://mc.coupang.com/ssr/desktop/order/list",
+    "updated_at": "2026-09-07 12:20"
+  },
+  {
     "id": "pkg-costco-edifier-headphones",
     "name": "Costco 好市多 EDIFIER W820NB Plus 降噪耳機 (海軍藍)",
     "category": "3C 旗艦",
@@ -190,54 +238,6 @@
     "note": "13 吋 MacBook Air 天藍色 (NT$43,390) | 送達地址：新北市五股區五工路 鈊象電子 | 佳永 陳",
     "official_url": "https://www.apple.com/tw/shop/order/list",
     "updated_at": "2026-09-07 12:20"
-  },
-  {
-    "id": "pkg-coupang",
-    "name": "酷澎火箭速配 (日常用品/零食)",
-    "category": "生活百貨",
-    "carrier": "coupang",
-    "carrier_name": "Coupang 酷澎自營車隊",
-    "tracking_number": "酷澎 App 訂單專屬配送",
-    "status_code": "out_for_delivery",
-    "status_text": "酷澎專車出車派送中 (預計今日送達)",
-    "current_step": 4,
-    "steps": [
-      {
-        "title": "酷澎下單",
-        "desc": "系統確認訂單",
-        "time": "已成立",
-        "completed": true
-      },
-      {
-        "title": "物流中心分揀",
-        "desc": "台灣物流中心火速分揀打包",
-        "time": "已完成",
-        "completed": true
-      },
-      {
-        "title": "發往區域站所",
-        "desc": "清晨幹線大貨車轉送站所",
-        "time": "已送達",
-        "completed": true
-      },
-      {
-        "title": "專車配送",
-        "desc": "酷澎專員已裝車，出車派送中",
-        "time": "派送中",
-        "completed": true
-      },
-      {
-        "title": "門前送達",
-        "desc": "送達指定地點拍照完成",
-        "time": "預估今日 19:00 前",
-        "completed": false
-      }
-    ],
-    "estimated_delivery": "今日 19:00 前",
-    "location": "專員配送途中",
-    "note": "酷澎為自營封閉物流，送達時會自動傳送放置照片到 App",
-    "official_url": "https://mc.coupang.com/ssr/desktop/order/list",
-    "updated_at": "2026-09-07 12:00"
   },
   {
     "id": "pkg-shopee-silicone-case",
