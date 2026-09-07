@@ -1,4 +1,4 @@
-// Clean Chronological Schedule Engine
+﻿// Clean Chronological Schedule Engine
 const SCHEDULE_DATA = [
   {
     "group_title": "明天 · 9月8日 (週二)",
@@ -16,7 +16,7 @@ const SCHEDULE_DATA = [
         "eta_tag": "清晨送達",
         "status_badge": "專車配送中",
         "status_color": "text-emerald-700 bg-emerald-50 border-emerald-200",
-        "icon_svg": "<svg class=\"w-6 h-6 text-emerald-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M7 4c0 3 2 5 2 8s-2 5-2 8h10c0-3-2-5-2-8s2-5 2-8H7z\"/>\n          <circle cx=\"12\" cy=\"12\" r=\"2.5\" fill=\"currentColor\" fill-opacity=\"0.2\"/>\n          <path d=\"M9 7h6M9 17h6\"/>\n        </svg>",
+        "icon_svg": "<svg class=\"w-6 h-6 text-emerald-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 4c0 3 2 5 2 8s-2 5-2 8h10c0-3-2-5-2-8s2-5 2-8H7z\"/><circle cx=\"12\" cy=\"12\" r=\"2.5\" fill=\"currentColor\" fill-opacity=\"0.2\"/><path d=\"M9 7h6M9 17h6\"/></svg>",
         "icon_bg": "bg-emerald-50 border-emerald-200",
         "current_status": "酷澎物流中心急速備貨，夜間專車即將發出",
         "official_url": "https://mc.coupang.com/ssr/desktop/order/list"
@@ -32,7 +32,7 @@ const SCHEDULE_DATA = [
         "eta_tag": "即將到店",
         "status_badge": "出貨配送中",
         "status_color": "text-amber-700 bg-amber-50 border-amber-200",
-        "icon_svg": "<svg class=\"w-6 h-6 text-amber-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <rect x=\"3\" y=\"5\" width=\"18\" height=\"15\" rx=\"5\" fill=\"currentColor\" fill-opacity=\"0.1\"/>\n          <path d=\"M8 5V3a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/>\n          <line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\" stroke-dasharray=\"2 2\"/>\n          <circle cx=\"12\" cy=\"12\" r=\"1.5\" fill=\"currentColor\"/>\n        </svg>",
+        "icon_svg": "<svg class=\"w-6 h-6 text-amber-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"15\" rx=\"5\" fill=\"currentColor\" fill-opacity=\"0.1\"/><path d=\"M8 5V3a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/><line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\" stroke-dasharray=\"2 2\"/><circle cx=\"12\" cy=\"1.5\" r=\"1.5\" fill=\"currentColor\"/></svg>",
         "icon_bg": "bg-amber-50 border-amber-200",
         "current_status": "賣家備貨包裝中，準備交寄隔日達專線",
         "official_url": "https://spx.tw/#/detail?tracking_number=260906ARJSSG7P"
@@ -48,9 +48,9 @@ const SCHEDULE_DATA = [
         "eta_tag": "宅配到府",
         "status_badge": "倉儲處理中",
         "status_color": "text-blue-700 bg-blue-50 border-blue-200",
-        "icon_svg": "<svg class=\"w-6 h-6 text-blue-700\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3\"/>\n          <path d=\"M8 12V9a4 4 0 0 1 8 0v3\" stroke-width=\"1.2\"/>\n        </svg>",
+        "icon_svg": "<svg class=\"w-6 h-6 text-blue-700\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3\"/><path d=\"M8 12V9a4 4 0 0 1 8 0v3\" stroke-width=\"1.2\"/></svg>",
         "icon_bg": "bg-blue-50 border-blue-200",
-        "current_status": "好市多倉儲正式開工揀貨打包，即將移交快遞",
+        "current_status": "好市多倉儲正式揀貨打包中，即將移交快遞",
         "official_url": "https://www.costco.com.tw/my-account/orders"
       }
     ]
@@ -71,7 +71,7 @@ const SCHEDULE_DATA = [
         "eta_tag": "超商取件",
         "status_badge": "賣家備貨中",
         "status_color": "text-orange-700 bg-orange-50 border-orange-200",
-        "icon_svg": "<svg class=\"w-6 h-6 text-orange-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <circle cx=\"8\" cy=\"12\" r=\"5\" fill=\"currentColor\" fill-opacity=\"0.1\"/>\n          <circle cx=\"8\" cy=\"12\" r=\"2\"/>\n          <circle cx=\"16\" cy=\"12\" r=\"5\" fill=\"currentColor\" fill-opacity=\"0.1\"/>\n          <circle cx=\"16\" cy=\"12\" r=\"2\"/>\n        </svg>",
+        "icon_svg": "<svg class=\"w-6 h-6 text-orange-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"8\" cy=\"12\" r=\"5\" fill=\"currentColor\" fill-opacity=\"0.1\"/><circle cx=\"8\" cy=\"12\" r=\"2\"/><circle cx=\"16\" cy=\"12\" r=\"5\" fill=\"currentColor\" fill-opacity=\"0.1\"/><circle cx=\"16\" cy=\"12\" r=\"2\"/></svg>",
         "icon_bg": "bg-orange-50 border-orange-200",
         "current_status": "賣家確認訂單打包中，等待交寄門市轉運",
         "official_url": "https://spx.tw/#/detail?tracking_number=260906ARM5QKBM"
@@ -94,9 +94,9 @@ const SCHEDULE_DATA = [
         "eta_tag": "專車直寄公司",
         "status_badge": "原廠處理中",
         "status_color": "text-sky-700 bg-sky-50 border-sky-200",
-        "icon_svg": "<svg class=\"w-6 h-6 text-sky-700\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <rect x=\"4\" y=\"4\" width=\"16\" height=\"11\" rx=\"2\" fill=\"currentColor\" fill-opacity=\"0.1\"/>\n          <path d=\"M2 18h20a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1z\"/>\n          <circle cx=\"12\" cy=\"9.5\" r=\"1.5\" fill=\"currentColor\"/>\n        </svg>",
+        "icon_svg": "<svg class=\"w-6 h-6 text-sky-700\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"11\" rx=\"2\" fill=\"currentColor\" fill-opacity=\"0.1\"/><path d=\"M2 18h20a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1z\"/><circle cx=\"12\" cy=\"9.5\" r=\"1.5\" fill=\"currentColor\"/></svg>",
         "icon_bg": "bg-sky-50 border-sky-200",
-        "current_status": "正在處理 (Apple 原廠產線組裝配裝中)",
+        "current_status": "正在處理 (Apple 原廠產線客製組裝生產中)",
         "official_url": "https://www.apple.com/tw/shop/order/list"
       },
       {
@@ -110,10 +110,49 @@ const SCHEDULE_DATA = [
         "eta_tag": "跨國清關送達",
         "status_badge": "已下單備貨",
         "status_color": "text-indigo-700 bg-indigo-50 border-indigo-200",
-        "icon_svg": "<svg class=\"w-6 h-6 text-indigo-700\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M6 3c0 4 2 6 2 9s-2 5-2 9h12c0-4-2-5-2-9s2-5 2-9H6z\"/>\n          <circle cx=\"12\" cy=\"12\" r=\"3\" stroke-width=\"2\"/>\n          <path d=\"M8 8l8 8M16 8l-8 8\" stroke-width=\"1\" stroke-dasharray=\"1 2\"/>\n        </svg>",
+        "icon_svg": "<svg class=\"w-6 h-6 text-indigo-700\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 3c0 4 2 6 2 9s-2 5-2 9h12c0-4-2-5-2-9s2-5 2-9H6z\"/><circle cx=\"12\" cy=\"12\" r=\"3\" stroke-width=\"2\"/><path d=\"M8 8l8 8M16 8l-8 8\" stroke-width=\"1\" stroke-dasharray=\"1 2\"/></svg>",
         "icon_bg": "bg-indigo-50 border-indigo-200",
         "current_status": "已完成下單，Amazon 美國物流中心調撥理貨中",
         "official_url": "https://www.amazon.com/gp/css/order-history?ref_=fed_yo_default"
+      }
+    ]
+  },
+  {
+    "group_title": "近期已配達 · momo 購物",
+    "group_badge": "已送達",
+    "group_badge_color": "bg-pink-100 text-pink-800 border-pink-200",
+    "items": [
+      {
+        "id": "pkg-momo-charger",
+        "name": "【u-ta】頂規 65W 全能快充伸縮線充電器 IC13",
+        "subtitle": "內建 Type-C 伸縮線 1A1C · 白色 65W 摺疊充電頭",
+        "platform": "momo 購物網",
+        "order_id": "訂單 #26082621456511",
+        "shipping_type": "momo 快速出貨 (宅配)",
+        "eta": "已送達 (8/27 配達)",
+        "eta_tag": "已簽收",
+        "status_badge": "已順利送達",
+        "status_color": "text-emerald-700 bg-emerald-50 border-emerald-200",
+        "icon_svg": "<svg class=\"w-6 h-6 text-pink-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5\" y=\"7\" width=\"14\" height=\"14\" rx=\"3\" fill=\"currentColor\" fill-opacity=\"0.1\"/><path d=\"M9 7V3M15 7V3M12 11v3l2-1-2 4\"/></svg>",
+        "icon_bg": "bg-pink-50 border-pink-200",
+        "current_status": "包裹已由專人宅配送達簽收完畢！",
+        "official_url": "https://www.momoshop.com.tw/order/orderList.momo"
+      },
+      {
+        "id": "pkg-momo-camera",
+        "name": "【TP-Link】4K 800萬 AI智慧人臉偵測 旋轉監視器",
+        "subtitle": "Tapo C260 · 支援 512GB 記憶卡 居家安全監控",
+        "platform": "momo 購物網",
+        "order_id": "訂單 #26081921287203",
+        "shipping_type": "momo 快速出貨 (宅配)",
+        "eta": "已送達 (8/20 配達)",
+        "eta_tag": "已簽收",
+        "status_badge": "已順利送達",
+        "status_color": "text-emerald-700 bg-emerald-50 border-emerald-200",
+        "icon_svg": "<svg class=\"w-6 h-6 text-pink-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"10\" r=\"7\" fill=\"currentColor\" fill-opacity=\"0.1\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/><path d=\"M7 21h10M12 17v4\"/></svg>",
+        "icon_bg": "bg-pink-50 border-pink-200",
+        "current_status": "包裹已完成送達簽收！",
+        "official_url": "https://www.momoshop.com.tw/order/orderList.momo"
       }
     ]
   }
@@ -127,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadSchedule() {
   try {
-    const local = localStorage.getItem('package_schedule_v3');
+    const local = localStorage.getItem('package_schedule_v5');
     if (local && JSON.parse(local).length > 0) {
       groups = JSON.parse(local);
     } else {
@@ -137,12 +176,30 @@ function loadSchedule() {
   } catch (e) {
     groups = SCHEDULE_DATA;
   }
+  updateHeaderStats();
   renderSchedule();
+}
+
+function updateHeaderStats() {
+  const subtitle = document.getElementById('header-subtitle');
+  if (!subtitle) return;
+  let inTransit = 0;
+  let delivered = 0;
+  groups.forEach(g => {
+    g.items.forEach(item => {
+      if (item.status_badge.includes('已') || item.eta.includes('已送達') || item.eta.includes('已配達')) {
+        delivered++;
+      } else {
+        inTransit++;
+      }
+    });
+  });
+  subtitle.textContent = `獨立包裹按到貨日期依序呈現 · ${inTransit} 件在途中 · ${delivered} 件已配達`;
 }
 
 function saveToStorage() {
   try {
-    localStorage.setItem('package_schedule_v3', JSON.stringify(groups));
+    localStorage.setItem('package_schedule_v5', JSON.stringify(groups));
   } catch (e) {}
 }
 
@@ -183,7 +240,7 @@ function renderSchedule() {
                     <span class="text-zinc-400 font-mono text-[11px]">${item.order_id}</span>
                   </div>
                   <!-- ETA Highlight -->
-                  <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                  <span class="text-xs font-bold ${item.status_badge.includes('已') ? 'text-zinc-600 bg-zinc-100 border-zinc-200' : 'text-emerald-600 bg-emerald-50 border-emerald-100'} px-2 py-0.5 rounded-md border">
                     ${item.eta}
                   </span>
                 </div>
@@ -222,6 +279,10 @@ function renderSchedule() {
 function refreshData() {
   const icon = document.getElementById('refresh-icon');
   if (icon) icon.classList.add('fa-spin');
+  // clear cache to force latest server state
+  try {
+    localStorage.removeItem('package_schedule_v5');
+  } catch(e) {}
   loadSchedule();
   setTimeout(() => {
     if (icon) icon.classList.remove('fa-spin');
