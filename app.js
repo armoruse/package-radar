@@ -1,4 +1,5 @@
-const PACKAGES = [
+// Scheme 2: Chronological Journey Engine
+const DEFAULT_PACKAGES = [
   {
     "id": "pkg-coupang",
     "name": "AHOYE 透氣可調護膝 2件組 (加強款)",
@@ -127,248 +128,144 @@ const PACKAGES = [
   }
 ];
 
-let currentTheme = 1;
+let packages = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Restore user chosen theme if stored
-  const saved = localStorage.getItem('user_chosen_theme');
-  if (saved) {
-    currentTheme = parseInt(saved, 10);
-  }
-  applyTheme(currentTheme);
+  loadPackages();
 });
 
-function switchTheme(num) {
-  currentTheme = num;
-  localStorage.setItem('user_chosen_theme', num);
-  applyTheme(num);
-}
-
-function applyTheme(num) {
-  const body = document.getElementById('app-body');
-  const container = document.getElementById('view-container');
-
-  // Update navbar buttons
-  document.querySelectorAll('.theme-btn').forEach((btn, i) => {
-    btn.classList.toggle('active-theme', i + 1 === num);
-  });
-
-  // Reset body classes
-  body.className = 'min-h-screen transition-colors duration-300 antialiased ';
-
-  if (num === 1) {
-    body.classList.add('theme-ios-body');
-    renderTheme1(container);
-  } else if (num === 2) {
-    body.classList.add('theme-timeline-body');
-    renderTheme2(container);
-  } else if (num === 3) {
-    body.classList.add('theme-lookbook-body');
-    renderTheme3(container);
+function loadPackages() {
+  try {
+    const local = localStorage.getItem('package_journey_v1');
+    if (local && JSON.parse(local).length > 0) {
+      packages = JSON.parse(local);
+    } else {
+      packages = DEFAULT_PACKAGES;
+      saveToStorage();
+    }
+  } catch (e) {
+    packages = DEFAULT_PACKAGES;
   }
+  renderJourney();
 }
 
-/* =========================================================================
-   RENDERER 1: iOS Dynamic Island / Live Activity (大焦點卡 + 膠囊流)
-   ========================================================================= */
-function renderTheme1(container) {
-  const heroPkg = PACKAGES[0]; // 酷澎護膝 (明天清晨最早到！)
-  const otherPkgs = PACKAGES.slice(1);
+function saveToStorage() {
+  try {
+    localStorage.setItem('package_journey_v1', JSON.stringify(packages));
+  } catch (e) {}
+}
 
-  container.innerHTML = `
-    <div class="space-y-6">
-      <!-- Title -->
-      <div class="flex items-center justify-between pb-2 border-b border-white/10">
-        <div>
-          <h2 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-            <i class="fa-brands fa-apple text-lg"></i> 即時動態 (Live Activities)
-          </h2>
-          <p class="text-xs text-slate-400 mt-0.5">依照送達迫近感排程 · 6 件包裹運送中</p>
+function renderJourney() {
+  const container = document.getElementById('timeline-container');
+  if (!container) return;
+
+  container.innerHTML = packages.map((p, idx) => {
+    const isFirst = idx === 0;
+
+    return `
+      <div class="journey-node pb-10">
+        <!-- Node Dot (Green checked circle for first/active, neutral ring for upcoming) -->
+        <div class="journey-dot ${isFirst ? 'active' : ''}">
+          ${isFirst ? '<i class="fa-solid fa-check text-white text-[10px]"></i>' : ''}
         </div>
-        <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-          即時監控中
-        </span>
-      </div>
 
-      <!-- HERO LIVE ACTIVITY (最迫近的包裹：酷澎護膝) -->
-      <div class="ios-hero-card p-6 relative overflow-hidden">
-        <div class="flex flex-col md:flex-row items-center gap-6">
-          <!-- Standalone Cutout Product (Transparent, No Box!) -->
-          <div class="w-32 h-32 flex-shrink-0 flex items-center justify-center relative">
-            <div class="absolute inset-0 rounded-full bg-emerald-500/10 blur-xl"></div>
-            <img src="${heroPkg.image}" alt="${heroPkg.name}" class="w-28 h-28 object-contain relative z-10 filter drop-shadow-2xl">
+        <!-- Header: Arrival Timing Flag & Platform -->
+        <div class="flex items-baseline gap-2.5 mb-2 flex-wrap">
+          <span class="text-sm font-black tracking-tight ${
+            p.eta_highlight ? 'text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200' : 'text-zinc-800 font-bold'
+          }">
+            ${p.eta}
+          </span>
+          <span class="text-xs text-zinc-400 font-medium">
+            ${p.platform} · ${p.shipping_type || ''}
+          </span>
+          <span class="text-zinc-300">•</span>
+          <span class="text-[11px] font-mono text-zinc-400">${p.order_id || ''}</span>
+        </div>
+
+        <!-- Content Row: Pure Transparent Cutout Photo + Story Details -->
+        <div class="flex items-start gap-5 pt-1.5">
+          <!-- 100% Transparent Cutout Product Photo (Clean, NO Box Frame) -->
+          <div class="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 flex items-center justify-center product-cutout">
+            <img src="${p.image}" alt="${p.name}" class="w-20 h-20 sm:w-24 sm:h-24 object-contain filter drop-shadow-md">
           </div>
 
-          <!-- Hero Info -->
-          <div class="flex-1 text-center md:text-left">
-            <div class="flex items-center justify-center md:justify-start gap-2 mb-1.5">
-              <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-semibold border border-blue-500/30">
-                ${heroPkg.shipping_type}
-              </span>
-              <span class="text-xs text-slate-400 font-mono">${heroPkg.order_id}</span>
+          <!-- Story Details (Human, zero AI redundancy) -->
+          <div class="flex-1 min-w-0">
+            <h3 class="text-base sm:text-lg font-bold text-zinc-900 leading-snug">
+              ${p.name}
+            </h3>
+            <p class="text-xs text-zinc-500 mt-1">${p.subtitle || ''}</p>
+
+            <div class="mt-2 text-xs text-zinc-600 flex items-center gap-1.5 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+              <span>當前進度：<strong class="text-zinc-800">${p.status_text}</strong></span>
             </div>
-            <h3 class="text-xl font-bold text-white tracking-wide">${heroPkg.name}</h3>
-            <p class="text-xs text-slate-300 mt-1">${heroPkg.subtitle} · ${heroPkg.status_text}</p>
 
-            <!-- Huge Arrival ETA Countdown -->
-            <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between flex-wrap gap-2">
-              <div>
-                <span class="text-[11px] uppercase tracking-wider text-slate-400 block">預計送達</span>
-                <span class="text-lg sm:text-2xl font-black text-emerald-400 tracking-tight">${heroPkg.eta}</span>
-              </div>
-              <a href="${heroPkg.official_url}" target="_blank" class="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs hover:bg-slate-200 transition flex items-center gap-1.5 shadow-md">
-                查看訂單 ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Subtitle for upcoming -->
-      <div class="pt-2">
-        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">後續抵達包裹 (已依抵達順序排列)</h4>
-        <div class="space-y-3">
-          ${otherPkgs.map(p => `
-            <div class="ios-capsule-card p-4 sm:p-5 flex items-center gap-4">
-              <!-- Transparent Cutout Image (80x80) -->
-              <div class="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center">
-                <img src="${p.image}" alt="${p.name}" class="w-16 h-16 object-contain filter drop-shadow-md">
-              </div>
-
-              <!-- Content -->
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-2 text-xs mb-0.5">
-                  <span class="font-medium text-slate-300">${p.platform}</span>
-                  <span class="text-slate-500">•</span>
-                  <span class="text-slate-400 font-mono text-[11px] truncate">${p.order_id}</span>
-                </div>
-                <h4 class="text-sm sm:text-base font-bold text-white truncate">${p.name}</h4>
-                <p class="text-xs text-slate-400 mt-0.5 truncate">${p.status_text}</p>
-              </div>
-
-              <!-- ETA & Link -->
-              <div class="text-right flex-shrink-0">
-                <span class="text-xs sm:text-sm font-bold ${p.eta_highlight ? 'text-emerald-400' : 'text-sky-400'} block">
-                  ${p.eta}
-                </span>
-                <a href="${p.official_url}" target="_blank" class="text-xs text-slate-400 hover:text-white mt-1 inline-block">
-                  詳情 ↗
+            <div class="mt-2.5 flex items-center gap-3">
+              ${p.official_url ? `
+                <a href="${p.official_url}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-zinc-800 hover:text-emerald-600 underline underline-offset-4 transition">
+                  查閱官方即時訂單進度 →
                 </a>
-              </div>
+              ` : ''}
+              <button onclick="removePackage('${p.id}')" class="text-xs text-zinc-300 hover:text-rose-500 transition" title="取消追蹤">
+                ✕
+              </button>
             </div>
-          `).join('')}
+          </div>
         </div>
       </div>
-    </div>
-  `;
+    `;
+  }).join('');
 }
 
-/* =========================================================================
-   RENDERER 2: Chronological Journey Timeline (零方塊、收禮旅行路線)
-   ========================================================================= */
-function renderTheme2(container) {
-  container.innerHTML = `
-    <div class="max-w-2xl mx-auto space-y-6">
-      <!-- Title -->
-      <div class="pb-4 border-b border-zinc-200">
-        <span class="text-xs uppercase tracking-widest text-emerald-600 font-bold font-mono">CHRONOLOGICAL JOURNEY</span>
-        <h2 class="text-2xl font-bold text-zinc-900 mt-1">包裹抵達時間軸</h2>
-        <p class="text-sm text-zinc-500">沒有方格子，純粹按照物品走進你生活的時間順序展開。</p>
-      </div>
-
-      <!-- Continuous Timeline Stream -->
-      <div class="relative pt-2">
-        ${PACKAGES.map((p, idx) => `
-          <div class="journey-node pb-10">
-            <!-- Node Dot -->
-            <div class="journey-dot ${idx === 0 ? 'active' : ''}">
-              ${idx === 0 ? '<i class="fa-solid fa-check text-white text-[10px]"></i>' : ''}
-            </div>
-
-            <!-- Header Date Flag -->
-            <div class="flex items-baseline gap-2 mb-2">
-              <span class="text-sm font-black tracking-tight ${p.eta_highlight ? 'text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200' : 'text-zinc-800'}">
-                ${p.eta}
-              </span>
-              <span class="text-xs text-zinc-400 font-medium">${p.platform} · ${p.shipping_type}</span>
-            </div>
-
-            <!-- Content Area (Clean Floating, NO Rigid Boxes) -->
-            <div class="flex items-start gap-5 pt-1">
-              <!-- Pure Transparent Cutout Photo (No Frame) -->
-              <div class="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 flex items-center justify-center">
-                <img src="${p.image}" alt="${p.name}" class="w-20 h-20 sm:w-24 sm:h-24 object-contain filter drop-shadow-md">
-              </div>
-
-              <!-- Story Details -->
-              <div class="flex-1 min-w-0">
-                <h3 class="text-base sm:text-lg font-bold text-zinc-900 leading-snug">${p.name}</h3>
-                <p class="text-xs text-zinc-500 mt-1">${p.subtitle}</p>
-                <div class="mt-2 text-xs text-zinc-600 flex items-center gap-1.5 font-medium">
-                  <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
-                  <span>當前動態：<strong>${p.status_text}</strong></span>
-                </div>
-                <div class="mt-2">
-                  <a href="${p.official_url}" target="_blank" class="text-xs font-semibold text-zinc-800 hover:text-emerald-600 underline underline-offset-4">
-                    查閱官方即時訂單進度 →
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `;
+function refreshData() {
+  const icon = document.getElementById('refresh-icon');
+  if (icon) icon.classList.add('fa-spin');
+  loadPackages();
+  setTimeout(() => {
+    if (icon) icon.classList.remove('fa-spin');
+  }, 500);
 }
 
-/* =========================================================================
-   RENDERER 3: Editorial Minimal Lookbook (日系無印 / 蔦屋生活誌風)
-   ========================================================================= */
-function renderTheme3(container) {
-  container.innerHTML = `
-    <div class="max-w-3xl mx-auto space-y-8 font-serif">
-      <!-- Title -->
-      <div class="text-center pb-8 border-b border-gray-100">
-        <span class="text-xs uppercase tracking-widest text-gray-400 font-sans">Autumn 2026 Collection</span>
-        <h2 class="text-3xl sm:text-4xl font-light text-gray-900 tracking-wide mt-2">私物到着記錄</h2>
-        <p class="text-xs text-gray-400 font-sans mt-2">靜候六件生活良品送達 · 漫步五股生活誌</p>
-      </div>
+function removePackage(id) {
+  if (!confirm('確定要移除此筆包裹紀錄嗎？')) return;
+  packages = packages.filter(p => p.id !== id);
+  saveToStorage();
+  renderJourney();
+}
 
-      <!-- Minimal Rows (Zero borders, generous breathing space) -->
-      <div class="divide-y divide-gray-100 font-sans">
-        ${PACKAGES.map((p, idx) => `
-          <div class="py-8 flex flex-col sm:flex-row items-center justify-between gap-6 lookbook-row">
-            <!-- Large Pure Cutout Image (28x28 = 112px, Transparent, Breathing Room) -->
-            <div class="w-28 h-28 flex-shrink-0 flex items-center justify-center">
-              <img src="${p.image}" alt="${p.name}" class="w-24 h-24 object-contain filter drop-shadow-sm">
-            </div>
+function openAddModal() {
+  document.getElementById('add-modal').classList.remove('hidden');
+}
 
-            <!-- Elegant Typography Description -->
-            <div class="flex-1 text-center sm:text-left space-y-1">
-              <div class="text-xs text-gray-400 uppercase tracking-wider font-mono">
-                No. 0${idx + 1} · ${p.platform}
-              </div>
-              <h3 class="text-lg font-medium text-gray-900 tracking-tight font-serif">
-                ${p.name}
-              </h3>
-              <p class="text-xs text-gray-500 font-sans">${p.subtitle}</p>
-              <p class="text-xs text-gray-400 font-sans">${p.status_text}</p>
-            </div>
+function closeModal() {
+  document.getElementById('add-modal').classList.add('hidden');
+}
 
-            <!-- Arrival Date Indicator -->
-            <div class="text-center sm:text-right flex-shrink-0 space-y-1">
-              <span class="text-xs text-gray-400 block font-mono">ESTIMATED ARRIVAL</span>
-              <span class="text-base font-semibold text-gray-900 block font-serif">
-                ${p.eta}
-              </span>
-              <a href="${p.official_url}" target="_blank" class="text-xs text-gray-400 hover:text-black underline underline-offset-4">
-                官網追蹤
-              </a>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `;
+function addNewPackage(e) {
+  e.preventDefault();
+  const name = document.getElementById('new-name').value.trim();
+  const platform = document.getElementById('new-platform').value.trim() || '網購包裹';
+  const eta = document.getElementById('new-eta').value.trim();
+  const status_text = document.getElementById('new-status').value.trim() || '已建立追蹤，等待出貨配送';
+
+  const newP = {
+    id: 'pkg-' + Date.now().toString(36),
+    name,
+    subtitle: '',
+    image: 'images/shopee_bag.png',
+    platform,
+    order_id: '',
+    shipping_type: '標準運送',
+    eta,
+    eta_highlight: false,
+    status_text,
+    official_url: ''
+  };
+
+  packages.push(newP);
+  saveToStorage();
+  renderJourney();
+  closeModal();
 }

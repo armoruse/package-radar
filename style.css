@@ -1,46 +1,9 @@
-/* Theme Switcher Button Active Style */
-.theme-btn.active-theme {
-  background: #2563eb;
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
-}
-
-/* ============================================================
-   THEME 1: iOS Dynamic Island & Live Activities (Dark Capsule)
-   ============================================================ */
-.theme-ios-body {
-  background-color: #0b0f19;
-  color: #f3f4f6;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
-}
-
-.ios-hero-card {
-  background: rgba(22, 27, 38, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 28px;
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-}
-
-.ios-capsule-card {
-  background: rgba(18, 23, 33, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.ios-capsule-card:hover {
-  background: rgba(26, 32, 46, 0.95);
-  border-color: rgba(255, 255, 255, 0.18);
-  transform: translateY(-2px);
-}
-
-/* ============================================================
-   THEME 2: Chronological Journey Timeline (Zero Boxes, Paper Style)
-   ============================================================ */
-.theme-timeline-body {
+/* Scheme 2: Minimalist Chronological Journey */
+body {
   background-color: #faf9f6;
   color: #27272a;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Noto Sans TC", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .journey-node {
@@ -53,7 +16,7 @@
   position: absolute;
   left: 11px;
   top: 36px;
-  bottom: -24px;
+  bottom: -20px;
   width: 2px;
   background: #e4e4e7;
 }
@@ -65,7 +28,7 @@
 .journey-dot {
   position: absolute;
   left: 0;
-  top: 14px;
+  top: 10px;
   width: 24px;
   height: 24px;
   border-radius: 9999px;
@@ -74,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .journey-dot.active {
@@ -83,21 +46,10 @@
   box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
 }
 
-/* ============================================================
-   THEME 3: Editorial Minimal Lookbook (Muji / Kinfolk Luxury)
-   ============================================================ */
-.theme-lookbook-body {
-  background-color: #ffffff;
-  color: #111827;
-  font-family: -apple-system, BlinkMacSystemFont, "Didot", "Playfair Display", "Songti TC", Georgia, serif;
+.product-cutout {
+  transition: transform 0.2s ease;
 }
 
-.lookbook-row {
-  border-bottom: 1px solid #f3f4f6;
-  padding-bottom: 2.5rem;
-  margin-bottom: 2.5rem;
-  transition: opacity 0.2s ease;
-}
-.lookbook-row:hover {
-  opacity: 0.85;
+.journey-node:hover .product-cutout {
+  transform: scale(1.04);
 }
