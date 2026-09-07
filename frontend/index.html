@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Package Radar | 雲端包裹即時雷達</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-indigo-500 selection:text-white pb-12">
+
+  <!-- Top Navbar -->
+  <header class="sticky top-0 z-30 backdrop-blur-md bg-slate-900/85 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+          <i class="fa-solid fa-satellite-dish text-white text-lg"></i>
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-wide flex items-center gap-2">
+            Package Radar
+            <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block"></span>
+              雲端 24H 監控
+            </span>
+          </h1>
+          <p class="text-xs text-slate-400 hidden sm:block">MacBook、Amazon、酷澎、蝦皮 多平台包裹統一進度看板</p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2 sm:space-x-2.5">
+        <!-- Cloud Notification Settings Button -->
+        <button onclick="openSettingsModal()" class="px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-xs text-slate-300 transition flex items-center gap-1.5" title="設定 LINE / Telegram 雲端推播">
+          <i class="fa-solid fa-paper-plane text-indigo-400"></i>
+          <span class="hidden md:inline">LINE / TG 推播</span>
+        </button>
+
+        <!-- Browser Notification Toggle Button -->
+        <button id="btn-notify" onclick="toggleNotifications()" class="px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-xs text-slate-300 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-bell" id="notify-icon"></i>
+          <span class="hidden md:inline" id="notify-label">桌面推播</span>
+        </button>
+
+        <!-- Refresh Button -->
+        <button onclick="refreshAll()" class="p-2 sm:px-3 sm:py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-xs text-slate-300 transition flex items-center gap-1.5" title="一鍵刷新">
+          <i class="fa-solid fa-arrows-rotate" id="refresh-icon"></i>
+          <span class="hidden md:inline">刷新</span>
+        </button>
+
+        <!-- Add Package Button -->
+        <button onclick="openAddModal()" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white text-xs sm:text-sm font-medium shadow-md shadow-indigo-500/20 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-plus"></i>
+          <span class="hidden xs:inline">新增包裹</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- Quick Stats Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+      <div class="glass-card p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
+        <div>
+          <p class="text-xs text-slate-400 font-medium">追蹤總數</p>
+          <p class="text-2xl font-bold text-white mt-1" id="stat-total">0</p>
+        </div>
+        <div class="w-11 h-11 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-boxes-stacked"></i>
+        </div>
+      </div>
+
+      <div class="glass-card p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
+        <div>
+          <p class="text-xs text-amber-400 font-medium">跨國清關 / 運送中</p>
+          <p class="text-2xl font-bold text-white mt-1" id="stat-in-transit">0</p>
+        </div>
+        <div class="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-plane-departure"></i>
+        </div>
+      </div>
+
+      <div class="glass-card p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
+        <div>
+          <p class="text-xs text-sky-400 font-medium">即將送達 / 待取件</p>
+          <p class="text-2xl font-bold text-white mt-1" id="stat-arriving">0</p>
+        </div>
+        <div class="w-11 h-11 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-truck-fast"></i>
+        </div>
+      </div>
+
+      <div class="glass-card p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
+        <div>
+          <p class="text-xs text-emerald-400 font-medium">已簽收完成</p>
+          <p class="text-2xl font-bold text-white mt-1" id="stat-delivered">0</p>
+        </div>
+        <div class="w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Controls -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 glass-card p-3 rounded-2xl border border-slate-800">
+      <!-- Filter Tabs -->
+      <div class="flex items-center space-x-1 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
+        <button onclick="setFilter('all')" class="tab-btn active px-3 py-1.5 rounded-lg text-xs font-medium transition whitespace-nowrap" data-filter="all">
+          全部包裹
+        </button>
+        <button onclick="setFilter('transit')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 transition whitespace-nowrap" data-filter="transit">
+          運送 / 清關中
+        </button>
+        <button onclick="setFilter('arriving')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 transition whitespace-nowrap" data-filter="arriving">
+          派送中 / 待取件
+        </button>
+        <button onclick="setFilter('delivered')" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 transition whitespace-nowrap" data-filter="delivered">
+          已簽收
+        </button>
+      </div>
+
+      <!-- Search Input -->
+      <div class="relative w-full sm:w-64">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+        <input type="text" id="search-input" oninput="handleSearch()" placeholder="搜尋包裹名稱、單號或物流..." class="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-900 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
+      </div>
+    </div>
+
+    <!-- Package Cards Container -->
+    <div id="package-list" class="space-y-4">
+      <!-- Injected by JavaScript -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="hidden text-center py-16 space-y-3">
+      <div class="w-16 h-16 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center mx-auto text-2xl text-slate-600">
+        <i class="fa-solid fa-box-open"></i>
+      </div>
+      <p class="text-sm text-slate-400">目前沒有符合條件的包裹</p>
+      <button onclick="openAddModal()" class="text-xs text-indigo-400 hover:underline">點此新增一個包裹開始追蹤</button>
+    </div>
+  </main>
+
+  <!-- Add / Edit Modal -->
+  <div id="package-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl animate-fade-in">
+      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+        <h3 class="text-base font-bold text-white flex items-center gap-2" id="modal-title">
+          <i class="fa-solid fa-box-archive text-indigo-400"></i> 新增追蹤包裹
+        </h3>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-200"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+      
+      <form id="package-form" onsubmit="savePackage(event)" class="p-6 space-y-4">
+        <input type="hidden" id="modal-pkg-id">
+        
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">包裹名稱 / 商品說明 *</label>
+          <input type="text" id="modal-name" required placeholder="例如：MacBook Pro、Amazon 護膝、酷澎衛生紙" class="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700 rounded-lg text-slate-100 focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">分類</label>
+            <select id="modal-category" class="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700 rounded-lg text-slate-100 focus:outline-none focus:border-indigo-500">
+              <option value="3C 數位">3C 數位</option>
+              <option value="運動保健">運動保健</option>
+              <option value="生活百貨">生活百貨</option>
+              <option value="服飾配件">服飾配件</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">物流商</label>
+            <select id="modal-carrier" class="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700 rounded-lg text-slate-100 focus:outline-none focus:border-indigo-500">
+              <option value="auto">✨ 自動根據單號辨識</option>
+              <option value="sf_express">📦 順豐速運 (Apple常見)</option>
+              <option value="t_cat">🐈 黑貓宅急便</option>
+              <option value="ecms">🌐 ECMS 易客滿 (Amazon直寄)</option>
+              <option value="dhl">✈️ DHL Express</option>
+              <option value="coupang">🚀 酷澎自營火箭速配</option>
+              <option value="shopee_spx">🦐 蝦皮店到店 (SPX)</option>
+              <option value="seven_eleven">🏪 7-ELEVEN 交貨便</option>
+              <option value="family_mart">🏪 全家店到店</option>
+              <option value="post_tw">📮 中華郵政</option>
+              <option value="other">🔍 17TRACK / 其他快遞</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">物流追蹤單號 *</label>
+          <input type="text" id="modal-tracking" required placeholder="請貼上快遞單號 (如 SF..., APX..., TW...)" oninput="autoDetectCarrier()" class="w-full px-3 py-2 text-sm font-mono bg-slate-950 border border-slate-700 rounded-lg text-indigo-300 focus:outline-none focus:border-indigo-500">
+          <p class="text-[11px] text-slate-500 mt-1" id="carrier-detect-hint">💡 貼上後會自動為你辨識物流商與官方查件連結</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">預估送達時段</label>
+          <input type="text" id="modal-eta" placeholder="例如：2026-09-08 14:00 或 今晚 19:00 前" class="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700 rounded-lg text-slate-100 focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">備註提醒</label>
+          <input type="text" id="modal-note" placeholder="例如：記得看 EZ WAY、司機會先電聯、取件要帶身分證" class="w-full px-3 py-2 text-sm bg-slate-950 border border-slate-700 rounded-lg text-slate-100 focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <div class="pt-3 border-t border-slate-800 flex justify-end space-x-2">
+          <button type="button" onclick="closeModal()" class="px-4 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-lg transition">取消</button>
+          <button type="submit" class="px-4 py-2 text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg shadow transition flex items-center gap-1.5">
+            <i class="fa-solid fa-check"></i> 儲存包裹
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Cloud Notification Settings Modal -->
+  <div id="settings-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl animate-fade-in">
+      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-paper-plane text-indigo-400"></i> 設定雲端手機推播
+        </h3>
+        <button onclick="closeSettingsModal()" class="text-slate-400 hover:text-slate-200"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+
+      <form onsubmit="saveCloudSettings(event)" class="p-6 space-y-4">
+        <div class="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-xs text-slate-300 space-y-1">
+          <p class="font-bold text-indigo-300 flex items-center gap-1.5"><i class="fa-solid fa-cloud"></i> 24H 雲端主動提醒</p>
+          <p>設定後，當包裹進入「派送中」或「抵達門市」時，雲端伺服器將直接傳送訊息到你的手機通訊軟體！</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">
+            <i class="fa-brands fa-line text-emerald-400"></i> LINE Notify 權杖 (Token)
+          </label>
+          <input type="password" id="cfg-line-token" placeholder="填入 LINE Notify Token (選填)" class="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-700 rounded-lg text-slate-100 focus:outline-none focus:border-indigo-500">
+          <p class="text-[10px] text-slate-500 mt-1">至 <a href="https://notify-bot.line.me/" target="_blank" class="text-indigo-400 underline">notify-bot.line.me</a> 免費取得個人權杖</p>
+        </div>
+
+        <div class="pt-2 border-t border-slate-800/80 space-y-3">
+          <label class="block text-xs font-medium text-slate-300">
+            <i class="fa-brands fa-telegram text-sky-400"></i> Telegram Bot 推播 (二選一或都填)
+          </label>
+          <input type="password" id="cfg-tg-token" placeholder="Telegram Bot Token" class="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-700 rounded-lg text-slate-100 focus:outline-none focus:border-indigo-500">
+          <input type="text" id="cfg-tg-chat" placeholder="您的 Telegram Chat ID (例如 12345678)" class="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-700 rounded-lg text-slate-100 focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
+          <button type="button" onclick="testPushNotification()" class="px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-xs text-indigo-300 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-vial"></i> 發送測試推播
+          </button>
+          <div class="flex space-x-2">
+            <button type="button" onclick="closeSettingsModal()" class="px-3 py-1.5 text-xs text-slate-300 hover:text-white rounded-lg">關閉</button>
+            <button type="submit" class="px-4 py-1.5 text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg shadow transition">
+              儲存設定
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
