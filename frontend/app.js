@@ -1,6 +1,54 @@
 // Cloudflare Pages & Local Edge Compatible
 const DEFAULT_PACKAGES = [
   {
+    "id": "pkg-costco-edifier-headphones",
+    "name": "Costco 好市多 EDIFIER W820NB Plus 降噪耳機 (海軍藍)",
+    "category": "3C 旗艦",
+    "carrier": "t_cat",
+    "carrier_name": "好市多線上宅配 (黑貓/宅配通)",
+    "tracking_number": "訂單 #645076852",
+    "status_code": "in_transit",
+    "status_text": "好市多倉儲處理中 (已成立即將出庫)",
+    "current_step": 2,
+    "steps": [
+      {
+        "title": "好市多下單",
+        "desc": "9/6 12:46 聯名卡刷卡確認 ($1,999)",
+        "time": "2026-09-06 12:46",
+        "completed": true
+      },
+      {
+        "title": "倉儲分揀",
+        "desc": "好市多物流中心撿貨打包中 (商品 #159947-NVY)",
+        "time": "處理中",
+        "completed": true
+      },
+      {
+        "title": "宅配出車",
+        "desc": "移交黑貓宅急便 / 宅配通轉運站所",
+        "time": "預估 9/07 晚間",
+        "completed": false
+      },
+      {
+        "title": "派件上門",
+        "desc": "司機專車配送前往五股區地址",
+        "time": "預估 9/08 - 9/09",
+        "completed": false
+      },
+      {
+        "title": "簽收開箱",
+        "desc": "收件人本人簽收完成",
+        "time": "待簽收",
+        "completed": false
+      }
+    ],
+    "estimated_delivery": "預估 9 月 8 日 - 9 月 9 日送達",
+    "location": "好市多線上購物倉儲中心",
+    "note": "EDIFIER W820NB Plus 海軍藍本體！正好搭配剛才蝦皮買的耳機包與矽膠套！",
+    "official_url": "https://www.costco.com.tw/my-account/orders",
+    "updated_at": "2026-09-07 12:20"
+  },
+  {
     "id": "pkg-amazon-healthcare",
     "name": "Amazon 專業運動護膝 x 2 (2 Health Care items)",
     "category": "運動保健",
