@@ -1,4 +1,4 @@
-/* Scheme 2: Minimalist Chronological Journey */
+/* Clean Minimalist Chronological Schedule - No Artificial Pipeline */
 body {
   background-color: #faf9f6;
   color: #27272a;
@@ -6,50 +6,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.journey-node {
-  position: relative;
-  padding-left: 2.75rem;
-}
-
-.journey-node::before {
-  content: '';
-  position: absolute;
-  left: 11px;
-  top: 36px;
-  bottom: -20px;
-  width: 2px;
-  background: #e4e4e7;
-}
-
-.journey-node:last-child::before {
-  display: none;
-}
-
-.journey-dot {
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 24px;
-  height: 24px;
-  border-radius: 9999px;
+.item-card {
   background: #ffffff;
-  border: 3px solid #18181b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e7e5e4;
+  border-radius: 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.journey-dot.active {
-  border-color: #059669;
-  background: #059669;
-  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
-}
-
-.product-cutout {
-  transition: transform 0.2s ease;
-}
-
-.journey-node:hover .product-cutout {
-  transform: scale(1.04);
+.item-card:hover {
+  border-color: #d6d3d1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
 }

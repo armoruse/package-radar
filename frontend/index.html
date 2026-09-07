@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>包裹旅程時光軸 | Package Journey</title>
+  <title>包裹抵達時間表 | Package Timeline</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body class="min-h-screen py-10 px-4 sm:px-6 lg:px-8 antialiased selection:bg-zinc-800 selection:text-white">
 
-  <!-- Main Reader Container -->
+  <!-- Main Container -->
   <main class="max-w-2xl mx-auto space-y-8">
 
-    <!-- Elegant Header -->
-    <header class="pb-6 border-b border-zinc-200/80 flex items-start justify-between">
+    <!-- Clean Header -->
+    <header class="pb-5 border-b border-zinc-200/80 flex items-start justify-between">
       <div>
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <span class="text-xs uppercase tracking-widest text-zinc-500 font-mono font-semibold">CHRONOLOGICAL JOURNEY</span>
+          <span class="text-xs uppercase tracking-widest text-zinc-500 font-mono font-semibold">DELIVERY SCHEDULE</span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight mt-1.5">包裹抵達時間軸</h1>
-        <p class="text-xs sm:text-sm text-zinc-500 mt-1">依物品送達時間順序展開 · 6 件好物運送中</p>
+        <h1 class="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight mt-1.5">包裹抵達時間表</h1>
+        <p class="text-xs sm:text-sm text-zinc-500 mt-1">獨立包裹按到貨日期依序呈現 · 6 件物品在途中</p>
       </div>
 
       <div class="flex items-center gap-2 pt-1">
@@ -29,58 +29,21 @@
           <i class="fa-solid fa-arrows-rotate text-zinc-400" id="refresh-icon"></i>
           <span class="hidden sm:inline">重新整理</span>
         </button>
-        <button onclick="openAddModal()" class="p-2 sm:px-3 sm:py-1.5 text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-800 rounded-xl shadow-xs transition flex items-center gap-1.5">
-          <i class="fa-solid fa-plus text-xs"></i>
-          <span class="hidden sm:inline">新增</span>
-        </button>
       </div>
     </header>
 
-    <!-- Continuous Journey Timeline Stream -->
-    <div id="timeline-container" class="relative pt-2">
+    <!-- Grouped Date Blocks Container -->
+    <div id="schedule-container" class="space-y-8">
       <!-- Injected by JavaScript -->
     </div>
 
     <!-- Footer Note -->
-    <footer class="pt-8 pb-4 text-center border-t border-zinc-200/60 text-xs text-zinc-400">
-      <p>Package Journey · 24H 雲端邊緣同步</p>
+    <footer class="pt-8 pb-6 text-center border-t border-zinc-200/60 text-xs text-zinc-400">
+      <p>Package Timeline · 24H 雲端即時同步</p>
     </footer>
 
   </main>
 
-  <!-- Add Package Modal -->
-  <div id="add-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl border border-zinc-200 space-y-4">
-      <div class="flex items-center justify-between pb-3 border-b border-zinc-100">
-        <h3 class="text-base font-bold text-zinc-900">新增包裹</h3>
-        <button onclick="closeModal()" class="text-zinc-400 hover:text-zinc-600 text-lg">✕</button>
-      </div>
-
-      <form onsubmit="addNewPackage(event)" class="space-y-3 text-sm">
-        <div>
-          <label class="block text-xs font-medium text-zinc-700 mb-1">商品名稱 *</label>
-          <input type="text" id="new-name" required placeholder="例如：iPhone 16、運動水壺" class="w-full px-3 py-2 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-900 text-sm">
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-zinc-700 mb-1">平台與單號 *</label>
-          <input type="text" id="new-platform" placeholder="例如：好市多 #645076852" class="w-full px-3 py-2 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-900 text-sm">
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-zinc-700 mb-1">預估送達時段 *</label>
-          <input type="text" id="new-eta" required placeholder="例如：明天清晨、9/15 前" class="w-full px-3 py-2 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-900 text-sm">
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-zinc-700 mb-1">當前動態簡述</label>
-          <input type="text" id="new-status" placeholder="例如：賣家備貨中、清關中" class="w-full px-3 py-2 border border-zinc-200 rounded-xl focus:outline-none focus:border-zinc-900 text-sm">
-        </div>
-        <div class="pt-3 flex justify-end space-x-2">
-          <button type="button" onclick="closeModal()" class="px-4 py-2 text-xs text-zinc-500 hover:text-zinc-700">取消</button>
-          <button type="submit" class="px-4 py-2 text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-800 rounded-xl">儲存</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
