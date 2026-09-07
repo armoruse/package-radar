@@ -325,8 +325,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadPackages() {
   try {
-    const local = localStorage.getItem('package_radar_packages');
-    if (local) {
+    const local = localStorage.getItem('package_radar_packages_v2');
+    if (local && JSON.parse(local).length > 0) {
       allPackages = JSON.parse(local);
     } else {
       allPackages = DEFAULT_PACKAGES;
@@ -341,7 +341,7 @@ function loadPackages() {
 
 function saveToStorage() {
   try {
-    localStorage.setItem('package_radar_packages', JSON.stringify(allPackages));
+    localStorage.setItem('package_radar_packages_v2', JSON.stringify(allPackages));
   } catch (e) {
     console.error('Save to localStorage failed:', e);
   }
