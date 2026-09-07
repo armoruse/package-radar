@@ -1,66 +1,103 @@
-/* Clean, Minimalist, Modern Design */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background-color: #f4f5f7;
-  color: #1f2937;
-  -webkit-font-smoothing: antialiased;
+/* Theme Switcher Button Active Style */
+.theme-btn.active-theme {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
 }
 
-.clean-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease;
+/* ============================================================
+   THEME 1: iOS Dynamic Island & Live Activities (Dark Capsule)
+   ============================================================ */
+.theme-ios-body {
+  background-color: #0b0f19;
+  color: #f3f4f6;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
 }
 
-.clean-card:hover {
-  border-color: #d1d5db;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+.ios-hero-card {
+  background: rgba(22, 27, 38, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
 }
 
-.step-line {
+.ios-capsule-card {
+  background: rgba(18, 23, 33, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ios-capsule-card:hover {
+  background: rgba(26, 32, 46, 0.95);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   THEME 2: Chronological Journey Timeline (Zero Boxes, Paper Style)
+   ============================================================ */
+.theme-timeline-body {
+  background-color: #faf9f6;
+  color: #27272a;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Noto Sans TC", sans-serif;
+}
+
+.journey-node {
   position: relative;
-  flex: 1;
+  padding-left: 2.75rem;
 }
 
-.step-line::after {
+.journey-node::before {
   content: '';
   position: absolute;
-  top: 6px;
-  left: 50%;
-  width: 100%;
-  height: 2px;
-  background: #e5e7eb;
-  z-index: 1;
+  left: 11px;
+  top: 36px;
+  bottom: -24px;
+  width: 2px;
+  background: #e4e4e7;
 }
 
-.step-line:last-child::after {
+.journey-node:last-child::before {
   display: none;
 }
 
-.step-line.done::after {
-  background: #10b981;
-}
-
-.step-dot {
-  position: relative;
-  z-index: 2;
-  width: 14px;
-  height: 14px;
+.journey-dot {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 24px;
+  height: 24px;
   border-radius: 9999px;
   background: #ffffff;
-  border: 2px solid #d1d5db;
-  margin: 0 auto;
+  border: 3px solid #18181b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.step-line.done .step-dot {
-  background: #10b981;
-  border-color: #10b981;
+.journey-dot.active {
+  border-color: #059669;
+  background: #059669;
+  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
 }
 
-.step-line.current .step-dot {
-  background: #2563eb;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+/* ============================================================
+   THEME 3: Editorial Minimal Lookbook (Muji / Kinfolk Luxury)
+   ============================================================ */
+.theme-lookbook-body {
+  background-color: #ffffff;
+  color: #111827;
+  font-family: -apple-system, BlinkMacSystemFont, "Didot", "Playfair Display", "Songti TC", Georgia, serif;
+}
+
+.lookbook-row {
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  transition: opacity 0.2s ease;
+}
+.lookbook-row:hover {
+  opacity: 0.85;
 }

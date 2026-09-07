@@ -3,72 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>我的包裹清單 | Package Tracker</title>
+  <title>我的期待包裹 | 3 種風格提案</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
-<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+<body class="min-h-screen transition-colors duration-300 antialiased" id="app-body">
 
-  <!-- Main Container -->
-  <div class="max-w-3xl mx-auto space-y-6">
-
-    <!-- Clean Header -->
-    <header class="flex items-end justify-between pb-4 border-b border-gray-200">
-      <div>
-        <h1 class="text-2xl font-bold text-gray-900 tracking-tight">我的包裹</h1>
-        <p class="text-sm text-gray-500 mt-1" id="header-subtitle">共 6 件包裹運送中</p>
+  <!-- Top Style Selector Bar (Sticky) -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-black/85 border-b border-white/10 text-white px-4 py-3 shadow-lg">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-300">風格體驗切換器：</span>
       </div>
 
-      <div class="flex items-center space-x-2">
-        <button onclick="refreshAll()" class="px-3.5 py-2 text-xs font-medium text-gray-600 hover:text-gray-900 bg-white border border-gray-200 hover:border-gray-300 rounded-xl shadow-xs transition">
-          重新整理
+      <!-- 3 Style Buttons -->
+      <div class="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 text-xs w-full sm:w-auto overflow-x-auto">
+        <button onclick="switchTheme(1)" id="btn-theme-1" class="theme-btn px-3 py-1.5 rounded-lg font-medium transition whitespace-nowrap active-theme">
+          📱 方案 1：iOS 靈動島
         </button>
-        <button onclick="openAddModal()" class="px-3.5 py-2 text-xs font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-xl shadow-xs transition">
-          + 新增包裹
+        <button onclick="switchTheme(2)" id="btn-theme-2" class="theme-btn px-3 py-1.5 rounded-lg font-medium text-slate-400 hover:text-white transition whitespace-nowrap">
+          ⏱️ 方案 2：時光旅程線
+        </button>
+        <button onclick="switchTheme(3)" id="btn-theme-3" class="theme-btn px-3 py-1.5 rounded-lg font-medium text-slate-400 hover:text-white transition whitespace-nowrap">
+          📖 方案 3：選物日誌
         </button>
       </div>
-    </header>
-
-    <!-- Package Cards Container -->
-    <div id="package-list" class="space-y-4">
-      <!-- Injected by JavaScript -->
     </div>
+  </nav>
 
-  </div>
+  <!-- Dynamic Content Container -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8" id="view-container">
+    <!-- Rendered dynamically by app.js based on selected theme -->
+  </main>
 
-  <!-- Add Package Simple Modal -->
-  <div id="add-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl w-full max-w-md p-6 shadow-xl border border-gray-200 space-y-4">
-      <div class="flex items-center justify-between pb-3 border-b border-gray-100">
-        <h3 class="text-base font-bold text-gray-900">新增包裹</h3>
-        <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-lg">✕</button>
-      </div>
-
-      <form onsubmit="addNewPackage(event)" class="space-y-3 text-sm">
-        <div>
-          <label class="block text-xs font-medium text-gray-700 mb-1">商品名稱 *</label>
-          <input type="text" id="new-name" required placeholder="如：iPhone 16、運動水壺" class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 text-sm">
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-gray-700 mb-1">購買平台</label>
-          <input type="text" id="new-platform" placeholder="如：蝦皮、好市多、Amazon、PChome" class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 text-sm">
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-gray-700 mb-1">訂單或快遞單號 *</label>
-          <input type="text" id="new-tracking" required placeholder="請填入訂單編號或物流單號" class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 text-sm font-mono">
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-gray-700 mb-1">預估送達時間</label>
-          <input type="text" id="new-eta" placeholder="如：明天下午、9/15 前" class="w-full px-3 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 text-sm">
-        </div>
-        <div class="pt-3 flex justify-end space-x-2">
-          <button type="button" onclick="closeModal()" class="px-4 py-2 text-xs text-gray-500 hover:text-gray-700">取消</button>
-          <button type="submit" class="px-4 py-2 text-xs font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-xl">儲存</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
