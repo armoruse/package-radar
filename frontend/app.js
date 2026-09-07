@@ -49,52 +49,52 @@ const DEFAULT_PACKAGES = [
     "updated_at": "2026-09-07 12:00"
   },
   {
-    "id": "pkg-shopee-260828",
-    "name": "蝦皮購物 訂單 #260828GVCBF2V1",
-    "category": "生活網購",
+    "id": "pkg-shopee-headphone-case",
+    "name": "蝦皮 ⚡隔日達 SONY 頭戴式耳機收納包 (耳機盒)",
+    "category": "3C 周邊",
     "carrier": "shopee_spx",
-    "carrier_name": "蝦皮店到店 (SPX)",
-    "tracking_number": "260828GVCBF2V1",
-    "status_code": "ready_for_pickup",
-    "status_text": "包裹即將送達 / 門市取件中",
-    "current_step": 4,
+    "carrier_name": "蝦皮店到店 (⚡隔日達專線)",
+    "tracking_number": "訂單 #260906ARJSSG7P",
+    "status_code": "in_transit",
+    "status_text": "賣家備貨包裝中 (⚡隔日達火速出貨)",
+    "current_step": 2,
     "steps": [
       {
-        "title": "賣家寄件",
-        "desc": "賣家已將商品交寄物流",
-        "time": "已完成",
+        "title": "買家付款",
+        "desc": "9/6 12:59 完成付款確認 ($216)",
+        "time": "2026-09-06 12:59",
         "completed": true
       },
       {
-        "title": "物流分揀",
-        "desc": "大園理貨中心自動化分檢",
-        "time": "已完成",
+        "title": "賣家出貨",
+        "desc": "賣家 f53cs0i8zt 收到訂單，打包交寄",
+        "time": "進行中",
         "completed": true
       },
       {
-        "title": "門市配送",
-        "desc": "物流專車配送往門市中",
-        "time": "2026-09-05",
-        "completed": true
+        "title": "理貨專車",
+        "desc": "蝦皮店到店隔日達專車急速轉運",
+        "time": "預估 9/07 抵達中心",
+        "completed": false
       },
       {
-        "title": "即將送達",
-        "desc": "已進入末端門市，通知買家取件",
-        "time": "2026-09-06 00:29",
-        "completed": true
+        "title": "門市到店",
+        "desc": "抵達取件門市，發送取件通知",
+        "time": "⚡預估 9/07-9/08",
+        "completed": false
       },
       {
-        "title": "取件完成",
-        "desc": "出示條碼或報手機末三碼取件",
-        "time": "7日內取件",
+        "title": "完成取貨",
+        "desc": "出示取件條碼或報手機末三碼",
+        "time": "7天內取件",
         "completed": false
       }
     ],
-    "estimated_delivery": "即將到達門市 (請留意取件通知)",
-    "location": "蝦皮店到店 指定取件門市",
-    "note": "取件代碼請看蝦皮 App，記得帶身分證件備查",
-    "official_url": "https://spx.tw/#/detail?tracking_number=260828GVCBF2V1",
-    "updated_at": "2026-09-06 00:29"
+    "estimated_delivery": "⚡ 隔日達 (預估 9/7 ~ 9/8 送達門市)",
+    "location": "賣家備貨打包中",
+    "note": "商品：頭戴式耳機盒 (無登山扣) | 隔日達專線，寄出後次日通常即可到店取件",
+    "official_url": "https://spx.tw/#/detail?tracking_number=260906ARJSSG7P",
+    "updated_at": "2026-09-07 12:15"
   },
   {
     "id": "pkg-macbook",
