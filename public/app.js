@@ -191,6 +191,54 @@ const DEFAULT_PACKAGES = [
     "note": "酷澎為自營封閉物流，送達時會自動傳送放置照片到 App",
     "official_url": "https://mc.coupang.com/ssr/desktop/order/list",
     "updated_at": "2026-09-07 12:00"
+  },
+  {
+    "id": "pkg-shopee-silicone-case",
+    "name": "蝦皮 漫步者 W820NB 耳機罩矽膠保護套 (藏青色耳帽)",
+    "category": "3C 配件",
+    "carrier": "shopee_spx",
+    "carrier_name": "蝦皮店到店 (標準物流)",
+    "tracking_number": "訂單 #260906ARM5QKBM",
+    "status_code": "in_transit",
+    "status_text": "賣家確認訂單備貨中",
+    "current_step": 2,
+    "steps": [
+      {
+        "title": "買家付款",
+        "desc": "9/6 13:00 完成付款確認 ($149)",
+        "time": "2026-09-06 13:00",
+        "completed": true
+      },
+      {
+        "title": "賣家出貨",
+        "desc": "賣家 axaxax0616 備貨打包準備交寄",
+        "time": "進行中",
+        "completed": true
+      },
+      {
+        "title": "物流幹線",
+        "desc": "大園理貨中心分揀轉運中",
+        "time": "預估 9/08",
+        "completed": false
+      },
+      {
+        "title": "到達門市",
+        "desc": "抵達取件門市，發送簡訊通知",
+        "time": "預估 9/09-9/10",
+        "completed": false
+      },
+      {
+        "title": "取件簽收",
+        "desc": "報手機末三碼或出示條碼取貨",
+        "time": "7天內取件",
+        "completed": false
+      }
+    ],
+    "estimated_delivery": "預估 9 月 9 日 - 9 月 10 日送達門市",
+    "location": "賣家備貨打包中",
+    "note": "商品：【藏青色耳帽】保護套，漫步者 W820NB | 賣家 axaxax0616 出貨中",
+    "official_url": "https://spx.tw/#/detail?tracking_number=260906ARM5QKBM",
+    "updated_at": "2026-09-07 12:15"
   }
 ];
 
