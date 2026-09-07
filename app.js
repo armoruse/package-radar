@@ -1,196 +1,196 @@
 // Cloudflare Pages & Local Edge Compatible
 const DEFAULT_PACKAGES = [
   {
-    "id": "pkg-macbook-pro",
-    "name": "Apple 14 吋 MacBook Pro (太空黑)",
-    "category": "3C 旗艦",
-    "carrier": "sf_express",
-    "carrier_name": "順豐速運 (Apple 直營發貨)",
-    "tracking_number": "SF1688829031",
-    "status_code": "in_transit",
-    "status_text": "已安排航班，飛往台灣轉運中",
-    "current_step": 3,
-    "steps": [
-      {
-        "title": "Apple 訂單確認",
-        "desc": "訂單編號 W108829031",
-        "time": "2026-03-04 09:45",
-        "completed": true
-      },
-      {
-        "title": "原廠出庫",
-        "desc": "上海/深圳組裝中心已移交順豐",
-        "time": "2026-03-05 11:20",
-        "completed": true
-      },
-      {
-        "title": "航班轉運",
-        "desc": "順豐國際幹線航班飛往台灣中",
-        "time": "2026-03-06 06:10",
-        "completed": true
-      },
-      {
-        "title": "本地清關派件",
-        "desc": "抵達桃園機場清關，司機專車出車",
-        "time": "預估 2026-03-08",
-        "completed": false
-      },
-      {
-        "title": "本人簽收開箱",
-        "desc": "高單價商品，司機將提前電話聯絡",
-        "time": "預計 3/8-3/10",
-        "completed": false
-      }
-    ],
-    "estimated_delivery": "2026-03-08 ~ 03-10",
-    "location": "國際轉運航班中",
-    "note": "高單價 3C，配送前司機通常會電話聯絡，請保持手機暢通",
-    "official_url": "https://www.sf-express.com/tw/tc/dynamic_function/waybill/#search/bill-number/SF1688829031",
-    "updated_at": "2026-03-06 06:10"
-  },
-  {
-    "id": "pkg-amazon-zamst",
-    "name": "Amazon.co.jp ZAMST 專業防護膝サポーター (左右一組)",
-    "category": "運動護具",
+    "id": "pkg-amazon-healthcare",
+    "name": "Amazon 美國亞馬遜 專業運動護膝 x 2 (2 Health Care items)",
+    "category": "運動保健",
     "carrier": "ecms",
-    "carrier_name": "ECMS 易客滿 (日亞直寄)",
-    "tracking_number": "APX00982314TW",
-    "status_code": "customs",
-    "status_text": "台灣海關清關中 (EZ WAY 已申報)",
-    "current_step": 3,
+    "carrier_name": "Amazon Global / ECMS 易客滿",
+    "tracking_number": "9/6 已下單 (待出貨提供提單號)",
+    "status_code": "in_transit",
+    "status_text": "Amazon 備貨包裝中，即將出庫",
+    "current_step": 2,
     "steps": [
       {
-        "title": "日亞發貨",
-        "desc": "Amazon 日本倉庫出庫",
-        "time": "2026-03-05 14:12",
+        "title": "Amazon 下單",
+        "desc": "2026-09-06 11:54 已完成付款訂購",
+        "time": "2026-09-06 11:54",
+        "completed": true
+      },
+      {
+        "title": "原廠備貨",
+        "desc": "Amazon 倉庫正在理貨打包兩件護膝",
+        "time": "2026-09-07 進行中",
         "completed": true
       },
       {
         "title": "國際航空件",
-        "desc": "已搭乘國際航班抵達台灣桃園",
-        "time": "2026-03-05 23:40",
-        "completed": true
-      },
-      {
-        "title": "海關查驗",
-        "desc": "關貿網路 EZ WAY 實名委任確認中",
-        "time": "2026-03-06 08:30",
-        "completed": true
-      },
-      {
-        "title": "末端配送",
-        "desc": "清關完成轉交台灣中華郵政/宅配通",
-        "time": "預估 2026-03-08",
+        "desc": "安排國際航班起飛前往台灣桃園機場",
+        "time": "預估 9/10-9/12",
         "completed": false
       },
       {
-        "title": "配達簽收",
-        "desc": "投遞成功",
-        "time": "預計 2026-03-09 前",
+        "title": "海關清關",
+        "desc": "抵達台灣，EZ WAY 實名委任通關",
+        "time": "預估 9/13-9/15",
+        "completed": false
+      },
+      {
+        "title": "順利送達",
+        "desc": "送達新北市收件地址",
+        "time": "官方預估 9/15 - 9/22",
         "completed": false
       }
     ],
-    "estimated_delivery": "2026-03-09 前送達",
-    "location": "桃園機場海關清關所",
-    "note": "收到 EZ WAY 申報通知，記得確認申報相符加速通關",
-    "official_url": "https://track.ecmsglobal.com/express/track/index.html?tracking_number=APX00982314TW",
-    "updated_at": "2026-03-06 08:30"
+    "estimated_delivery": "9 月 15 日 - 9 月 22 日",
+    "location": "Amazon 美國/海外倉儲中心",
+    "note": "收件人：Jiayong (新北市)；出貨後留意 EZ WAY 委任確認",
+    "official_url": "https://www.amazon.com/gp/css/order-history?ref_=fed_yo_default",
+    "updated_at": "2026-09-07 12:00"
   },
   {
-    "id": "pkg-coupang-rocket",
-    "name": "酷澎火箭速配 (日常用品生活包)",
-    "category": "生活百貨",
-    "carrier": "coupang",
-    "carrier_name": "Coupang 酷澎火箭速配",
-    "tracking_number": "CPG-20260305-88219",
-    "status_code": "out_for_delivery",
-    "status_text": "酷澎專車派送中 (預計今晚配達)",
+    "id": "pkg-shopee-260828",
+    "name": "蝦皮購物 訂單 #260828GVCBF2V1",
+    "category": "生活網購",
+    "carrier": "shopee_spx",
+    "carrier_name": "蝦皮店到店 (SPX)",
+    "tracking_number": "260828GVCBF2V1",
+    "status_code": "ready_for_pickup",
+    "status_text": "包裹即將送達 / 門市取件中",
     "current_step": 4,
     "steps": [
       {
-        "title": "完成付款",
-        "desc": "訂單 CPG-20260305-88219 已成立",
-        "time": "2026-03-05 18:25",
+        "title": "賣家寄件",
+        "desc": "賣家已將商品交寄物流",
+        "time": "已完成",
         "completed": true
       },
       {
-        "title": "夜間分揀",
-        "desc": "酷澎台灣物流中心火速理貨",
-        "time": "2026-03-06 01:40",
+        "title": "物流分揀",
+        "desc": "大園理貨中心自動化分檢",
+        "time": "已完成",
         "completed": true
       },
       {
-        "title": "出發站所",
-        "desc": "已送抵所在配送站所",
-        "time": "2026-03-06 06:30",
+        "title": "門市配送",
+        "desc": "物流專車配送往門市中",
+        "time": "2026-09-05",
+        "completed": true
+      },
+      {
+        "title": "即將送達",
+        "desc": "已進入末端門市，通知買家取件",
+        "time": "2026-09-06 00:29",
+        "completed": true
+      },
+      {
+        "title": "取件完成",
+        "desc": "出示條碼或報手機末三碼取件",
+        "time": "7日內取件",
+        "completed": false
+      }
+    ],
+    "estimated_delivery": "即將到達門市 (請留意取件通知)",
+    "location": "蝦皮店到店 指定取件門市",
+    "note": "取件代碼請看蝦皮 App，記得帶身分證件備查",
+    "official_url": "https://spx.tw/#/detail?tracking_number=260828GVCBF2V1",
+    "updated_at": "2026-09-06 00:29"
+  },
+  {
+    "id": "pkg-macbook",
+    "name": "Apple 官方訂單 MacBook Pro (自訂配置)",
+    "category": "3C 旗艦",
+    "carrier": "sf_express",
+    "carrier_name": "順豐速運 / 黑貓 (Apple 直營出貨)",
+    "tracking_number": "請填入 Apple 訂單號 (如 W10...)",
+    "status_code": "in_transit",
+    "status_text": "組裝廠包裝完成，等待航班直飛台灣",
+    "current_step": 2,
+    "steps": [
+      {
+        "title": "Apple 訂購確認",
+        "desc": "訂單確認與客製化組裝",
+        "time": "進行中",
+        "completed": true
+      },
+      {
+        "title": "工廠出庫",
+        "desc": "產線完工，移交順豐/DHL國際快遞",
+        "time": "已移交",
+        "completed": true
+      },
+      {
+        "title": "國際直飛",
+        "desc": "安排航班運抵台灣桃園機場",
+        "time": "運送中",
+        "completed": false
+      },
+      {
+        "title": "清關派送",
+        "desc": "專車清關，司機出車派送",
+        "time": "待抵達",
+        "completed": false
+      },
+      {
+        "title": "本人簽收",
+        "desc": "高單價商品簽收開箱",
+        "time": "待簽收",
+        "completed": false
+      }
+    ],
+    "estimated_delivery": "依 Apple 官網預估日期為準",
+    "location": "國際快遞轉運站",
+    "note": "Apple 通常出貨時會寄送提單號，點卡片「✏️ 筆」即可替換為正式單號",
+    "official_url": "https://www.apple.com/tw/shop/order/list",
+    "updated_at": "2026-09-07 12:00"
+  },
+  {
+    "id": "pkg-coupang",
+    "name": "酷澎火箭速配 (日常用品/零食)",
+    "category": "生活百貨",
+    "carrier": "coupang",
+    "carrier_name": "Coupang 酷澎自營車隊",
+    "tracking_number": "酷澎 App 訂單專屬配送",
+    "status_code": "out_for_delivery",
+    "status_text": "酷澎專車出車派送中 (預計今日送達)",
+    "current_step": 4,
+    "steps": [
+      {
+        "title": "酷澎下單",
+        "desc": "系統確認訂單",
+        "time": "已成立",
+        "completed": true
+      },
+      {
+        "title": "物流中心分揀",
+        "desc": "台灣物流中心火速分揀打包",
+        "time": "已完成",
+        "completed": true
+      },
+      {
+        "title": "發往區域站所",
+        "desc": "清晨幹線大貨車轉送站所",
+        "time": "已送達",
         "completed": true
       },
       {
         "title": "專車配送",
         "desc": "酷澎專員已裝車，出車派送中",
-        "time": "2026-03-06 10:15",
+        "time": "派送中",
         "completed": true
       },
       {
         "title": "門前送達",
-        "desc": "放置指定位置拍照上傳",
-        "time": "預計今晚 19:00 前",
+        "desc": "送達指定地點拍照完成",
+        "time": "預估今日 19:00 前",
         "completed": false
       }
     ],
-    "estimated_delivery": "今晚 19:00 前",
-    "location": "已裝車，專員配送途中",
-    "note": "司機送達後會將門前照片推播至 Coupang App",
+    "estimated_delivery": "今日 19:00 前",
+    "location": "專員配送途中",
+    "note": "酷澎為自營封閉物流，送達時會自動傳送放置照片到 App",
     "official_url": "https://mc.coupang.com/ssr/desktop/order/list",
-    "updated_at": "2026-03-06 10:15"
-  },
-  {
-    "id": "pkg-shopee-pickup",
-    "name": "蝦皮購物 (電腦周邊配件)",
-    "category": "3C 周邊",
-    "carrier": "shopee_spx",
-    "carrier_name": "蝦皮店到店 (台北信義店)",
-    "tracking_number": "TW26030488129S",
-    "status_code": "ready_for_pickup",
-    "status_text": "已抵達門市，待取件 (7天取貨期)",
-    "current_step": 4,
-    "steps": [
-      {
-        "title": "賣家出貨",
-        "desc": "賣家已到店寄件",
-        "time": "2026-03-04 20:30",
-        "completed": true
-      },
-      {
-        "title": "理貨中心",
-        "desc": "包裹收回大園理貨中心分檢",
-        "time": "2026-03-05 04:00",
-        "completed": true
-      },
-      {
-        "title": "門市調撥",
-        "desc": "物流專車配送往門市中",
-        "time": "2026-03-05 15:30",
-        "completed": true
-      },
-      {
-        "title": "到達門市",
-        "desc": "包裹已到達【台北信義店】",
-        "time": "2026-03-06 08:20",
-        "completed": true
-      },
-      {
-        "title": "完成取貨",
-        "desc": "報手機末3碼或出示取件條碼取貨",
-        "time": "最晚需於 03-13 前取件",
-        "completed": false
-      }
-    ],
-    "estimated_delivery": "已在門市 (7天內取件)",
-    "location": "蝦皮店到店 台北信義店",
-    "note": "請攜帶身分證件備查，取件條碼可在蝦皮 App 查看",
-    "official_url": "https://spx.tw/#/detail?tracking_number=TW26030488129S",
-    "updated_at": "2026-03-06 08:20"
+    "updated_at": "2026-09-07 12:00"
   }
 ];
 
