@@ -6,6 +6,22 @@ const SCHEDULE_DATA = [
     "group_badge_color": "bg-emerald-100 text-emerald-800 border-emerald-200",
     "items": [
       {
+        "id": "pkg-costco",
+        "name": "EDIFIER W820NB Plus 降噪耳機 (海軍藍)",
+        "subtitle": "好市多線上宅配 · 耳機本體 $1,999",
+        "platform": "Costco 好市多",
+        "order_id": "訂單 #645076852",
+        "shipping_type": "線上宅配 (黑貓/宅配通)",
+        "eta": "已出貨 · 預估今明兩天送達",
+        "eta_tag": "宅配到府",
+        "status_badge": "宅配派送中",
+        "status_color": "text-emerald-700 bg-emerald-50 border-emerald-200",
+        "icon_svg": "<svg class=\"w-6 h-6 text-blue-700\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3\"/><path d=\"M8 12V9a4 4 0 0 1 8 0v3\" stroke-width=\"1.2\"/></svg>",
+        "icon_bg": "bg-blue-50 border-blue-200",
+        "current_status": "好市多官網已確認正式出貨！黑貓宅急便 / 宅配通專車配送中",
+        "official_url": "https://www.costco.com.tw/my-account/orders"
+      },
+      {
         "id": "pkg-shopee-bag",
         "name": "SONY / 漫步者 頭戴式耳機硬殼收納盒",
         "subtitle": "耳機防壓抗震收納硬殼包 (無登山扣)",
@@ -20,22 +36,6 @@ const SCHEDULE_DATA = [
         "icon_bg": "bg-amber-50 border-amber-200",
         "current_status": "賣家已出貨，蝦皮隔日達專線幹線運送中",
         "official_url": "https://spx.tw/#/detail?tracking_number=260906ARJSSG7P"
-      },
-      {
-        "id": "pkg-costco",
-        "name": "EDIFIER W820NB Plus 降噪耳機 (海軍藍)",
-        "subtitle": "好市多線上宅配 · 耳機本體 $1,999",
-        "platform": "Costco 好市多",
-        "order_id": "訂單 #645076852",
-        "shipping_type": "線上宅配 (黑貓/宅配通)",
-        "eta": "預估今日~明日 (9/8 - 9/9)",
-        "eta_tag": "宅配到府",
-        "status_badge": "倉儲處理中",
-        "status_color": "text-blue-700 bg-blue-50 border-blue-200",
-        "icon_svg": "<svg class=\"w-6 h-6 text-blue-700\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3\"/><path d=\"M8 12V9a4 4 0 0 1 8 0v3\" stroke-width=\"1.2\"/></svg>",
-        "icon_bg": "bg-blue-50 border-blue-200",
-        "current_status": "好市多倉儲揀貨打包處理中，即將交寄宅配",
-        "official_url": "https://www.costco.com.tw/my-account/orders"
       }
     ]
   },
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadSchedule() {
   try {
-    const local = localStorage.getItem('package_schedule_v6');
+    const local = localStorage.getItem('package_schedule_v7');
     if (local && JSON.parse(local).length > 0) {
       groups = JSON.parse(local);
     } else {
@@ -187,7 +187,7 @@ function updateHeaderStats() {
   let delivered = 0;
   groups.forEach(g => {
     g.items.forEach(item => {
-      if (item.status_badge.includes('已') || item.eta.includes('已送達') || item.eta.includes('已配達')) {
+      if (item.status_badge.includes('已') && !item.status_badge.includes('已出貨') || item.eta.includes('已送達') || item.eta.includes('已配達')) {
         delivered++;
       } else {
         inTransit++;
@@ -199,7 +199,7 @@ function updateHeaderStats() {
 
 function saveToStorage() {
   try {
-    localStorage.setItem('package_schedule_v6', JSON.stringify(groups));
+    localStorage.setItem('package_schedule_v7', JSON.stringify(groups));
   } catch (e) {}
 }
 
@@ -207,7 +207,7 @@ function toggleDelivered(itemId) {
   groups.forEach(g => {
     g.items.forEach(item => {
       if (item.id === itemId) {
-        if (item.status_badge.includes('已')) {
+        if (item.status_badge === '已順利送達') {
           item.status_badge = '配送中';
           item.status_color = 'text-amber-700 bg-amber-50 border-amber-200';
           item.eta = '運送中';
@@ -246,7 +246,7 @@ function renderSchedule() {
       <!-- Items in this date group -->
       <div class="space-y-3">
         ${group.items.map(item => {
-          const isDelivered = item.status_badge.includes('已') || item.eta.includes('已送達') || item.eta.includes('已配達');
+          const isDelivered = item.status_badge === '已順利送達' || item.eta.includes('已送達') && !item.eta.includes('出貨') || item.eta.includes('已配達');
           return `
           <div class="item-card p-4 sm:p-5 transition">
             <div class="flex items-start gap-4">
@@ -286,7 +286,7 @@ function renderSchedule() {
                   </div>
 
                   <div class="flex items-center gap-3 flex-shrink-0">
-                    <!-- Quick Toggle Status Button (Great for SMS/App-only deliveries like Coupang) -->
+                    <!-- Quick Toggle Status Button -->
                     <button onclick="toggleDelivered('${item.id}')" class="text-[11px] px-2 py-1 rounded-lg border text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 transition inline-flex items-center gap-1" title="手動切換簽收狀態">
                       <i class="fa-solid ${isDelivered ? 'fa-rotate-left text-zinc-400' : 'fa-check text-emerald-500'}"></i>
                       <span>${isDelivered ? '設為未送達' : '標記已收到'}</span>
@@ -313,7 +313,7 @@ function refreshData() {
   const icon = document.getElementById('refresh-icon');
   if (icon) icon.classList.add('fa-spin');
   try {
-    localStorage.removeItem('package_schedule_v6');
+    localStorage.removeItem('package_schedule_v7');
   } catch(e) {}
   loadSchedule();
   setTimeout(() => {
