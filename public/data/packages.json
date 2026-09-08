@@ -2,46 +2,24 @@
   {
     "id": "pkg-coupang",
     "name": "AHOYE 透氣可調護膝 2件組 (加強款)",
-    "subtitle": "明天一早醒來門口簽收 · 先擋著用",
+    "subtitle": "酷澎火箭速配 · 亞馬遜護膝到貨前先頂替用",
     "image": "images/coupang_knee.png",
     "platform": "酷澎 Coupang",
     "platform_color": "bg-sky-50 text-sky-700 border-sky-200",
     "order_id": "2026.9.7 訂購",
-    "shipping_type": "🚀 火箭WOW 清晨達",
-    "eta": "明天清晨 07:00 前",
-    "eta_highlight": true,
-    "status_badge": "專車配送中",
-    "status_text": "酷澎備貨包裝中，夜間專車發出",
-    "current_step": 2,
+    "shipping_type": "🚀 火箭速配",
+    "eta": "已配達 (昨晚收到)",
+    "eta_highlight": false,
+    "status_badge": "已順利送達",
+    "status_text": "酷澎火箭速配已提前於昨晚 (9/7) 順利送達並完成簽收！",
+    "current_step": 4,
     "steps": [
       "已下單",
       "備貨打包",
-      "清晨派送",
-      "送達門口"
-    ],
-    "official_url": "https://mc.coupang.com/ssr/desktop/order/list"
-  },
-  {
-    "id": "pkg-costco",
-    "name": "EDIFIER W820NB Plus 降噪耳機 (海軍藍)",
-    "subtitle": "好市多線上宅配 · 耳機本體 $1,999",
-    "image": "images/costco_edifier.png",
-    "platform": "Costco 好市多",
-    "platform_color": "bg-blue-50 text-blue-800 border-blue-200",
-    "order_id": "訂單 #645076852",
-    "shipping_type": "線上宅配 (黑貓/宅配通)",
-    "eta": "預估 9/8 - 9/9 送達",
-    "eta_highlight": true,
-    "status_badge": "倉儲處理中",
-    "status_text": "好市多倉儲正式揀貨打包中",
-    "current_step": 2,
-    "steps": [
-      "已付款",
-      "倉儲處理",
-      "宅配配送",
+      "專車派送",
       "已送達"
     ],
-    "official_url": "https://www.costco.com.tw/my-account/orders"
+    "official_url": "https://mc.coupang.com/ssr/desktop/order/list"
   },
   {
     "id": "pkg-shopee-bag",
@@ -52,10 +30,10 @@
     "platform_color": "bg-orange-50 text-orange-700 border-orange-200",
     "order_id": "訂單 #260906ARJSSG7P",
     "shipping_type": "⚡ 蝦皮隔日達",
-    "eta": "預估 9/7 晚間 - 9/8",
+    "eta": "預估今日 9/8 到店",
     "eta_highlight": true,
     "status_badge": "出貨配送中",
-    "status_text": "賣家備貨包裝中，即將交寄隔日達專線",
+    "status_text": "賣家已出貨，蝦皮隔日達專線幹線運送中",
     "current_step": 2,
     "steps": [
       "已付款",
@@ -64,6 +42,28 @@
       "門市待取"
     ],
     "official_url": "https://spx.tw/#/detail?tracking_number=260906ARJSSG7P"
+  },
+  {
+    "id": "pkg-costco",
+    "name": "EDIFIER W820NB Plus 降噪耳機 (海軍藍)",
+    "subtitle": "好市多線上宅配 · 耳機本體 $1,999",
+    "image": "images/costco_edifier.png",
+    "platform": "Costco 好市多",
+    "platform_color": "bg-blue-50 text-blue-800 border-blue-200",
+    "order_id": "訂單 #645076852",
+    "shipping_type": "線上宅配 (黑貓/宅配通)",
+    "eta": "預估今日~明日 (9/8 - 9/9)",
+    "eta_highlight": true,
+    "status_badge": "倉儲處理中",
+    "status_text": "好市多倉儲揀貨打包處理中，即將交寄宅配",
+    "current_step": 2,
+    "steps": [
+      "已付款",
+      "倉儲處理",
+      "宅配配送",
+      "已送達"
+    ],
+    "official_url": "https://www.costco.com.tw/my-account/orders"
   },
   {
     "id": "pkg-shopee-cover",

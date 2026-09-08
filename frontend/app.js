@@ -1,26 +1,10 @@
 ﻿// Clean Chronological Schedule Engine
 const SCHEDULE_DATA = [
   {
-    "group_title": "明天 · 9月8日 (週二)",
+    "group_title": "今天 · 9月8日 (週二)",
     "group_badge": "最快送達",
     "group_badge_color": "bg-emerald-100 text-emerald-800 border-emerald-200",
     "items": [
-      {
-        "id": "pkg-coupang",
-        "name": "AHOYE 透氣可調護膝 2件組 (加強款)",
-        "subtitle": "明天一早醒來門口簽收 · 先擋著用",
-        "platform": "酷澎 Coupang",
-        "order_id": "2026.9.7 訂購",
-        "shipping_type": "🚀 火箭WOW 清晨達",
-        "eta": "明天清晨 07:00 前",
-        "eta_tag": "清晨送達",
-        "status_badge": "專車配送中",
-        "status_color": "text-emerald-700 bg-emerald-50 border-emerald-200",
-        "icon_svg": "<svg class=\"w-6 h-6 text-emerald-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 4c0 3 2 5 2 8s-2 5-2 8h10c0-3-2-5-2-8s2-5 2-8H7z\"/><circle cx=\"12\" cy=\"12\" r=\"2.5\" fill=\"currentColor\" fill-opacity=\"0.2\"/><path d=\"M9 7h6M9 17h6\"/></svg>",
-        "icon_bg": "bg-emerald-50 border-emerald-200",
-        "current_status": "酷澎物流中心急速備貨，夜間專車即將發出",
-        "official_url": "https://mc.coupang.com/ssr/desktop/order/list"
-      },
       {
         "id": "pkg-shopee-bag",
         "name": "SONY / 漫步者 頭戴式耳機硬殼收納盒",
@@ -28,13 +12,13 @@ const SCHEDULE_DATA = [
         "platform": "蝦皮購物",
         "order_id": "訂單 #260906ARJSSG7P",
         "shipping_type": "⚡ 蝦皮隔日達",
-        "eta": "預估 9/7 晚間 - 9/8",
+        "eta": "預估今日 9/8 到店",
         "eta_tag": "即將到店",
         "status_badge": "出貨配送中",
         "status_color": "text-amber-700 bg-amber-50 border-amber-200",
         "icon_svg": "<svg class=\"w-6 h-6 text-amber-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"15\" rx=\"5\" fill=\"currentColor\" fill-opacity=\"0.1\"/><path d=\"M8 5V3a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/><line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\" stroke-dasharray=\"2 2\"/><circle cx=\"12\" cy=\"1.5\" r=\"1.5\" fill=\"currentColor\"/></svg>",
         "icon_bg": "bg-amber-50 border-amber-200",
-        "current_status": "賣家備貨包裝中，準備交寄隔日達專線",
+        "current_status": "賣家已出貨，蝦皮隔日達專線幹線運送中",
         "official_url": "https://spx.tw/#/detail?tracking_number=260906ARJSSG7P"
       },
       {
@@ -44,19 +28,19 @@ const SCHEDULE_DATA = [
         "platform": "Costco 好市多",
         "order_id": "訂單 #645076852",
         "shipping_type": "線上宅配 (黑貓/宅配通)",
-        "eta": "預估 9/8 - 9/9 送達",
+        "eta": "預估今日~明日 (9/8 - 9/9)",
         "eta_tag": "宅配到府",
         "status_badge": "倉儲處理中",
         "status_color": "text-blue-700 bg-blue-50 border-blue-200",
         "icon_svg": "<svg class=\"w-6 h-6 text-blue-700\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3\"/><path d=\"M8 12V9a4 4 0 0 1 8 0v3\" stroke-width=\"1.2\"/></svg>",
         "icon_bg": "bg-blue-50 border-blue-200",
-        "current_status": "好市多倉儲正式揀貨打包中，即將移交快遞",
+        "current_status": "好市多倉儲揀貨打包處理中，即將交寄宅配",
         "official_url": "https://www.costco.com.tw/my-account/orders"
       }
     ]
   },
   {
-    "group_title": "本週三~週四 · 9月9日 - 9月10日",
+    "group_title": "明天~週四 · 9月9日 - 9月10日",
     "group_badge": "本週陸續到達",
     "group_badge_color": "bg-zinc-100 text-zinc-700 border-zinc-200",
     "items": [
@@ -118,10 +102,26 @@ const SCHEDULE_DATA = [
     ]
   },
   {
-    "group_title": "近期已配達 · momo 購物",
+    "group_title": "近期已配達 · 完成簽收",
     "group_badge": "已送達",
-    "group_badge_color": "bg-pink-100 text-pink-800 border-pink-200",
+    "group_badge_color": "bg-emerald-100 text-emerald-800 border-emerald-200",
     "items": [
+      {
+        "id": "pkg-coupang",
+        "name": "AHOYE 透氣可調護膝 2件組 (加強款)",
+        "subtitle": "酷澎火箭速配 · 亞馬遜護膝到貨前先頂替用",
+        "platform": "酷澎 Coupang",
+        "order_id": "2026.9.7 訂購",
+        "shipping_type": "🚀 火箭速配",
+        "eta": "已配達 (昨晚收到)",
+        "eta_tag": "已簽收",
+        "status_badge": "已順利送達",
+        "status_color": "text-emerald-700 bg-emerald-50 border-emerald-200",
+        "icon_svg": "<svg class=\"w-6 h-6 text-emerald-600\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 4c0 3 2 5 2 8s-2 5-2 8h10c0-3-2-5-2-8s2-5 2-8H7z\"/><circle cx=\"12\" cy=\"12\" r=\"2.5\" fill=\"currentColor\" fill-opacity=\"0.2\"/><path d=\"M9 7h6M9 17h6\"/></svg>",
+        "icon_bg": "bg-emerald-50 border-emerald-200",
+        "current_status": "酷澎火箭速配已提前於昨晚 (9/7) 順利送達並完成簽收！",
+        "official_url": "https://mc.coupang.com/ssr/desktop/order/list"
+      },
       {
         "id": "pkg-momo-charger",
         "name": "【u-ta】頂規 65W 全能快充伸縮線充電器 IC13",
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadSchedule() {
   try {
-    const local = localStorage.getItem('package_schedule_v5');
+    const local = localStorage.getItem('package_schedule_v6');
     if (local && JSON.parse(local).length > 0) {
       groups = JSON.parse(local);
     } else {
@@ -199,8 +199,31 @@ function updateHeaderStats() {
 
 function saveToStorage() {
   try {
-    localStorage.setItem('package_schedule_v5', JSON.stringify(groups));
+    localStorage.setItem('package_schedule_v6', JSON.stringify(groups));
   } catch (e) {}
+}
+
+function toggleDelivered(itemId) {
+  groups.forEach(g => {
+    g.items.forEach(item => {
+      if (item.id === itemId) {
+        if (item.status_badge.includes('已')) {
+          item.status_badge = '配送中';
+          item.status_color = 'text-amber-700 bg-amber-50 border-amber-200';
+          item.eta = '運送中';
+          item.current_status = '包裹正在運送途中';
+        } else {
+          item.status_badge = '已順利送達';
+          item.status_color = 'text-emerald-700 bg-emerald-50 border-emerald-200';
+          item.eta = '已配達 (已簽收)';
+          item.current_status = '包裹已順利送達簽收！';
+        }
+      }
+    });
+  });
+  saveToStorage();
+  updateHeaderStats();
+  renderSchedule();
 }
 
 function renderSchedule() {
@@ -222,8 +245,10 @@ function renderSchedule() {
 
       <!-- Items in this date group -->
       <div class="space-y-3">
-        ${group.items.map(item => `
-          <div class="item-card p-4 sm:p-5">
+        ${group.items.map(item => {
+          const isDelivered = item.status_badge.includes('已') || item.eta.includes('已送達') || item.eta.includes('已配達');
+          return `
+          <div class="item-card p-4 sm:p-5 transition">
             <div class="flex items-start gap-4">
               <!-- Crisp Vector Icon Badge -->
               <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex-shrink-0 flex items-center justify-center border shadow-xs ${item.icon_bg}">
@@ -240,7 +265,7 @@ function renderSchedule() {
                     <span class="text-zinc-400 font-mono text-[11px]">${item.order_id}</span>
                   </div>
                   <!-- ETA Highlight -->
-                  <span class="text-xs font-bold ${item.status_badge.includes('已') ? 'text-zinc-600 bg-zinc-100 border-zinc-200' : 'text-emerald-600 bg-emerald-50 border-emerald-100'} px-2 py-0.5 rounded-md border">
+                  <span class="text-xs font-bold ${isDelivered ? 'text-zinc-600 bg-zinc-100 border-zinc-200' : 'text-emerald-600 bg-emerald-50 border-emerald-100'} px-2 py-0.5 rounded-md border">
                     ${item.eta}
                   </span>
                 </div>
@@ -251,26 +276,34 @@ function renderSchedule() {
                 </h3>
                 <p class="text-xs text-zinc-500 mt-0.5">${item.subtitle}</p>
 
-                <!-- Current Real Status & Direct Link -->
+                <!-- Current Real Status & Direct Link & Quick Action -->
                 <div class="mt-3 pt-3 border-t border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-                  <div class="flex items-center gap-2 text-zinc-600">
-                    <span class="px-2 py-0.5 rounded font-medium border text-[11px] ${item.status_color}">
+                  <div class="flex items-center gap-2 text-zinc-600 min-w-0">
+                    <span class="px-2 py-0.5 rounded font-medium border text-[11px] flex-shrink-0 ${item.status_color}">
                       ${item.status_badge}
                     </span>
                     <span class="text-zinc-600 text-[11px] truncate">${item.current_status}</span>
                   </div>
 
-                  ${item.official_url ? `
-                    <a href="${item.official_url}" target="_blank" rel="noopener noreferrer" class="font-semibold text-zinc-700 hover:text-emerald-600 inline-flex items-center gap-1 transition flex-shrink-0">
-                      <span>查看訂單</span>
-                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                  ` : ''}
+                  <div class="flex items-center gap-3 flex-shrink-0">
+                    <!-- Quick Toggle Status Button (Great for SMS/App-only deliveries like Coupang) -->
+                    <button onclick="toggleDelivered('${item.id}')" class="text-[11px] px-2 py-1 rounded-lg border text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 transition inline-flex items-center gap-1" title="手動切換簽收狀態">
+                      <i class="fa-solid ${isDelivered ? 'fa-rotate-left text-zinc-400' : 'fa-check text-emerald-500'}"></i>
+                      <span>${isDelivered ? '設為未送達' : '標記已收到'}</span>
+                    </button>
+
+                    ${item.official_url ? `
+                      <a href="${item.official_url}" target="_blank" rel="noopener noreferrer" class="font-semibold text-zinc-700 hover:text-emerald-600 inline-flex items-center gap-1 transition">
+                        <span>查看訂單</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                      </a>
+                    ` : ''}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        `).join('')}
+        `}).join('')}
       </div>
     </section>
   `).join('');
@@ -279,9 +312,8 @@ function renderSchedule() {
 function refreshData() {
   const icon = document.getElementById('refresh-icon');
   if (icon) icon.classList.add('fa-spin');
-  // clear cache to force latest server state
   try {
-    localStorage.removeItem('package_schedule_v5');
+    localStorage.removeItem('package_schedule_v6');
   } catch(e) {}
   loadSchedule();
   setTimeout(() => {
